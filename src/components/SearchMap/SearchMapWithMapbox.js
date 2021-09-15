@@ -148,8 +148,8 @@ const priceLabelsInLocations = (
       const infoCardOpenIds = Array.isArray(infoCardOpen)
         ? infoCardOpen.map(l => l.id.uuid)
         : infoCardOpen
-        ? [infoCardOpen.id.uuid]
-        : [];
+          ? [infoCardOpen.id.uuid]
+          : [];
 
       // if the listing is open, don't print price label
       if (infoCardOpen != null && infoCardOpenIds.includes(listing.id.uuid)) {
@@ -387,6 +387,7 @@ class SearchMapWithMapbox extends Component {
         mapComponentRefreshToken
       );
 
+
       // If map has moved or info card opened, unnecessary markers need to be removed
       const removableMarkers = differenceBy(this.currentMarkers, labels, 'markerId');
       removableMarkers.forEach(rm => rm.marker.remove());
@@ -485,9 +486,9 @@ class SearchMapWithMapbox extends Component {
         })}
         {this.state.mapContainer && this.currentInfoCard
           ? ReactDOM.createPortal(
-              <SearchMapInfoCard {...this.currentInfoCard.componentProps} />,
-              this.currentInfoCard.markerContainer
-            )
+            <SearchMapInfoCard {...this.currentInfoCard.componentProps} />,
+            this.currentInfoCard.markerContainer
+          )
           : null}
       </div>
     );
