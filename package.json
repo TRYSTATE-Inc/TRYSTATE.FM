@@ -96,7 +96,7 @@
     "dev-frontend": "sharetribe-scripts start",
     "dev-backend": "nodemon server/apiServer.js",
     "dev": "npm run config-check&&export NODE_ENV=development REACT_APP_DEV_API_SERVER_PORT=3500&&concurrently --kill-others \"npm run dev-frontend\" \"npm run dev-backend\"",
-    "build": "npm build-web&&npm build-server",
+    "build": "npm install build-web&&npm install build-server",
     "build-web": "sharetribe-scripts build",
     "build-server": "sharetribe-scripts build-server",
     "format": "prettier --write '**/*.{js,css}'",
