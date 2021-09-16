@@ -388,6 +388,7 @@ class SearchMapWithMapbox extends Component {
       );
 
 
+
       // If map has moved or info card opened, unnecessary markers need to be removed
       const removableMarkers = differenceBy(this.currentMarkers, labels, 'markerId');
       removableMarkers.forEach(rm => rm.marker.remove());
