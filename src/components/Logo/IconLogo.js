@@ -34,7 +34,7 @@ const IconLogo = props => {
       //   </g>
       // </svg>
 
-      <svg className={className} {...rest} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 141 26" height="26" width="141">
+      <svg className={className} {...rest} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 141 26">
         <defs><style>
           {iconStyle}
         </style></defs>

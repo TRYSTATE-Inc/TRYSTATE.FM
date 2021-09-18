@@ -4,6 +4,8 @@ import classNames from 'classnames';
 import IconLogo from './IconLogo';
 import css from './Logo.module.css';
 
+import DemoLogo from './TryStateDemoLogo.png'
+
 const Logo = props => {
   const { className, format, ...rest } = props;
   const mobileClasses = classNames(css.logoMobile, className);
