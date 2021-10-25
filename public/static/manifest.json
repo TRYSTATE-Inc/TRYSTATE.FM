@@ -1,9 +1,9 @@
 {
-  "name": "Yogatime",
-  "short_name": "Yogatime",
+  "name": "TRYSTATE.FM",
+  "short_name": "TRYSTATE.FM",
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#0095b3",
+  "theme_color": "#D0F223",
   "background_color": "#FFFFFF",
   "icons": [
     {
