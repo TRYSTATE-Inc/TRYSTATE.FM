@@ -8,10 +8,9 @@ import routeConfiguration from '../../routeConfiguration';
 import config from '../../config';
 import { metaTagProps } from '../../util/seo';
 import { canonicalRoutePath } from '../../util/routes';
-import { CookieConsent } from '../../components';
 
-import facebookImage from '../../assets/yogatimeFacebook-1200x630.jpg';
-import twitterImage from '../../assets/yogatimeTwitter-600x314.jpg';
+import facebookImage from '../../assets/trystateFacebook-1200x630.png';
+import twitterImage from '../../assets/trystateTwitter-600x314.png';
 import css from './Page.module.css';
 
 const preventDefault = e => {
@@ -209,7 +208,6 @@ class PageComponent extends Component {
             {schemaArrayJSONString.replace(/</g, '\\u003c')}
           </script>
         </Helmet>
-        <CookieConsent />
         <div
           className={css.content}
           style={scrollPositionStyles}
