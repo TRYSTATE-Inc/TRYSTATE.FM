@@ -1,22 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import logoImage from './TRYSTATE_Name.svg';
 
 const IconLogo = props => {
   const { className, format, ...rest } = props;
 
   if (format === 'desktop') {
     return (
-      <svg id="Layer_1" data-name="Layer 1"
-        className={className}
-        {...rest}
-        xmlns="http://www.w3.org/2000/svg"
-        width="141"
-        height="26"
-        viewBox="0 0 141 26">
-        <rect width="141" height="26" />
-        <path class="cls-1" fill="#fff" d="M90,135,37.83,45H142.17ZM54.62,54.68l35.38,61,35.38-61Z" />
-      </svg>
-    );
+      <img className={className} src={logoImage} alt="logo" />
+    )
   }
 
   return (
