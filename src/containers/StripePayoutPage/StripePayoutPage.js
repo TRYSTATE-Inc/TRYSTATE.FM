@@ -26,7 +26,7 @@ import {
   UserNav,
 } from '../../components';
 import { StripeConnectAccountForm } from '../../forms';
-import { TopbarContainer } from '..';
+import { TopbarContainer ,BotbarContainer } from '..';
 import { savePayoutDetails } from './StripePayoutPage.duck';
 
 import css from './StripePayoutPage.module.css';
@@ -147,6 +147,11 @@ export const StripePayoutPageComponent = props => {
       <LayoutSideNavigation>
         <LayoutWrapperTopbar>
           <TopbarContainer
+            currentPage="StripePayoutPage"
+            desktopClassName={css.desktopTopbar}
+            mobileClassName={css.mobileTopbar}
+          />
+           <BotbarContainer
             currentPage="StripePayoutPage"
             desktopClassName={css.desktopTopbar}
             mobileClassName={css.mobileTopbar}

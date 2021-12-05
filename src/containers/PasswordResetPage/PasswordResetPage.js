@@ -19,7 +19,7 @@ import {
   Footer,
 } from '../../components';
 import { PasswordResetForm } from '../../forms';
-import { TopbarContainer } from '../../containers';
+import { TopbarContainer , BotbarContainer } from '../../containers';
 
 import { resetPassword } from './PasswordResetPage.duck';
 import css from './PasswordResetPage.module.css';
@@ -125,6 +125,7 @@ export class PasswordResetPageComponent extends Component {
         <LayoutSingleColumn>
           <LayoutWrapperTopbar>
             <TopbarContainer />
+            <BotbarContainer />
           </LayoutWrapperTopbar>
           <LayoutWrapperMain className={css.layoutWrapperMain}>
             <div className={css.root}>{content}</div>

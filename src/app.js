@@ -149,5 +149,5 @@ export const renderApp = (url, serverContext, preloadedState, collectChunks) => 
   );
   const body = ReactDOMServer.renderToString(WithChunks);
   const { helmet: head } = helmetContext;
-  return { head, body };
+  return { head, body  };
 };

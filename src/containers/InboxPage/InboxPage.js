@@ -35,7 +35,7 @@ import {
   IconSpinner,
   UserDisplayName,
 } from '../../components';
-import { TopbarContainer, NotFoundPage } from '../../containers';
+import { TopbarContainer, NotFoundPage , BotbarContainer } from '../../containers';
 import config from '../../config';
 
 import css from './InboxPage.module.css';
@@ -360,6 +360,12 @@ export const InboxPageComponent = props => {
       <LayoutSideNavigation>
         <LayoutWrapperTopbar>
           <TopbarContainer
+            className={css.topbar}
+            mobileRootClassName={css.mobileTopbar}
+            desktopClassName={css.desktopTopbar}
+            currentPage="InboxPage"
+          />
+          <BotbarContainer
             className={css.topbar}
             mobileRootClassName={css.mobileTopbar}
             desktopClassName={css.desktopTopbar}

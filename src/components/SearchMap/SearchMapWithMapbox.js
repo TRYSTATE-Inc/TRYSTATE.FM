@@ -334,22 +334,51 @@ class SearchMapWithMapbox extends Component {
   initializeMap() {
     const { offsetHeight, offsetWidth } = this.state.mapContainer;
     const hasDimensions = offsetHeight > 0 && offsetWidth > 0;
+   /* const bounds = [
+      [-79.8350953, 41.8935353], // Southwest coordinates
+       [-73.2765361, 40.2164079] // Northeast coordinates
+    ];*/
     if (hasDimensions) {
-      this.map = new window.mapboxgl.Map({
+        
+       this.map = new window.mapboxgl.Map({
         container: this.state.mapContainer,
-        style: 'mapbox://styles/mapbox/streets-v10',
+        style: 'mapbox://styles/mapbox/dark-v10',
         scrollZoom: false,
+        center: [-73.9025445121, 41.202154545451],
+        zoom: 7.95,
+        /*maxBounds: bounds,*/
       });
       window.mapboxMap = this.map;
 
       var nav = new window.mapboxgl.NavigationControl({ showCompass: false });
-      this.map.addControl(nav, 'top-left');
-
+      this.map.addControl(nav, 'top-right');
+      
       this.map.on('moveend', this.onMoveend);
 
       // Introduce rerendering after map is ready (to include labels),
       // but keep the map out of state life cycle.
       this.setState({ isMapReady: true });
+      this.map.addControl(
+
+        new mapboxgl.GeolocateControl({
+
+        positionOptions: {
+
+        enableHighAccuracy: true
+
+        },
+
+        // When active the map will receive updates to the device's location as it changes.
+
+        trackUserLocation: true,
+
+        // Draw an arrow next to the location dot to indicate which direction the device is heading.
+
+        showUserHeading: true
+
+        })
+
+        );
     }
   }
 

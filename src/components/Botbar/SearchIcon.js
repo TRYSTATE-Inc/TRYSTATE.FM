@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import css from './Topbar.module.css';
+import css from './Botbar.module.css';
 
 const SearchIcon = props => {
   const { className, rootClassName } = props;

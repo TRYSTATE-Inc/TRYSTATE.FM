@@ -18,6 +18,7 @@ import { TopbarSearchForm } from '../../forms';
 
 import css from './TopbarDesktop.module.css';
 
+
 const TopbarDesktop = props => {
   const {
     className,
@@ -134,23 +135,38 @@ const TopbarDesktop = props => {
 
   return (
     <nav className={classes}>
-      <NamedLink className={css.logoLink} name="LandingPage">
-        <Logo
+      {/* <NamedLink className={css.logod}  name="LandingPage">
+         TRYSTATE.FM
+      </NamedLink> */}
+      <NamedLink className={css.logod}  name="LandingPage">
+         <Logo
           format="desktop"
           className={css.logo}
           alt={intl.formatMessage({ id: 'TopbarDesktop.logo' })}
         />
-      </NamedLink>
-      {search}
-      <NamedLink className={css.createListingLink} name="NewListingPage">
+        </NamedLink>
+      <div className ={css.seccontain} >
+       
+       
+         <div className={css.space2}><i className="fal fa-search"></i></div>
+         {search}
+        
+       
+      </div>
+      
+       <div className ={css.thirdcontain} >
+        <NamedLink className={css.createListingLink}  name="NewListingPage">
+       
         <span className={css.createListing}>
+         
           <FormattedMessage id="TopbarDesktop.createListing" />
         </span>
-      </NamedLink>
-      {inboxLink}
-      {profileMenu}
-      {signupLink}
-      {loginLink}
+       </NamedLink>
+       {inboxLink}
+       {profileMenu}
+       {signupLink}
+       {loginLink}
+      </div>
     </nav>
   );
 };

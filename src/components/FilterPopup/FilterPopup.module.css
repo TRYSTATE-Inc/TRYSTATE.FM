@@ -10,17 +10,27 @@
   @apply --marketplaceSearchFilterLabelFontStyles;
 
   padding: var(--marketplaceButtonSmallDesktopPadding);
+  padding-right: 30px;
+  padding-left: 30px;
+  margin-right: 14px;
   width: auto;
   height: auto;
   min-height: 0;
+  font-size: 16px;
   border-radius: 4px;
-
+  background-color: #454545 ;
+  color: white;
   &:focus {
     outline: none;
     background-color: var(--matterColorLight);
     border-color: transparent;
     text-decoration: none;
     box-shadow: var(--boxShadowFilterButton);
+  }
+  &:hover,
+  &:focus {
+      background-color: #454545;
+      border-color:white;
   }
 }
 
@@ -30,12 +40,13 @@
   font-weight: var(--fontWeightSemiBold);
 
   padding: var(--marketplaceButtonSmallDesktopPadding);
+  margin-right: 14px;
   width: auto;
   height: auto;
   min-height: 0;
   border-radius: 4px;
   border: 1px solid var(--marketplaceColor);
-
+  font-size: 16px;
   &:hover,
   &:focus {
     border: 1px solid var(--marketplaceColorDark);
@@ -45,6 +56,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  display: none;
 }
 
 .popup {

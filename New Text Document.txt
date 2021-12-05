@@ -1,0 +1,15 @@
+ <div className={css.logIn}>
+          <NamedLink name="LoginPage" className={css.loginLink}>
+            <FormattedMessage id="TopbarMobileMenu.loginLink" />
+          </NamedLink>
+        
+           <div className={css.logIn1}
+            rootClassName={css.menu}
+            title={intl.formatMessage({ id: 'Topbar.menuIcon' })}
+            >
+           <NamedLink name="LoginPage" className={css.loginLink}>
+           <MenuIcon className={css.menuIcon} />
+            {notificationDot}
+          </NamedLink>
+           
+          </div>

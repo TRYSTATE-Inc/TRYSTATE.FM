@@ -16,7 +16,7 @@ import {
   Footer,
 } from '../../components';
 import { LocationSearchForm } from '../../forms';
-import { TopbarContainer } from '../../containers';
+import { TopbarContainer , BotbarContainer } from '../../containers';
 
 import css from './NotFoundPage.module.css';
 
@@ -51,6 +51,7 @@ export class NotFoundPageComponent extends Component {
         <LayoutSingleColumn>
           <LayoutWrapperTopbar>
             <TopbarContainer />
+            <BotbarContainer />
           </LayoutWrapperTopbar>
           <LayoutWrapperMain>
             <div className={css.root}>

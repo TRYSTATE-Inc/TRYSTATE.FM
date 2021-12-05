@@ -23,9 +23,9 @@ import {
 import { TopbarSearchForm } from '../../forms';
 
 import MenuIcon from './MenuIcon';
+import BecomeApartnerIcon from './BecomeApartnerIcon';
 import SearchIcon from './SearchIcon';
-import ShortLogoIcon from './ShortLogoIcon';
-import css from './Topbar.module.css';
+import css from './Botbar.module.css';
 
 const MAX_MOBILE_SCREEN_WIDTH = 768;
 
@@ -50,7 +50,7 @@ const redirectToURLWithoutModalState = (props, modalStateParam) => {
 const GenericError = props => {
   const { show } = props;
   const classes = classNames(css.genericError, {
-    [css.genericErrorinline]: show,
+    [css.genericErrorVisible]: show,
   });
   return (
     <div className={classes}>
@@ -69,7 +69,7 @@ GenericError.propTypes = {
   show: bool.isRequired,
 };
 
-class TopbarComponent extends Component {
+class BotbarComponent extends Component {
   constructor(props) {
     super(props);
     this.handleMobileMenuOpen = this.handleMobileMenuOpen.bind(this);
@@ -81,7 +81,20 @@ class TopbarComponent extends Component {
   }
 
   handleMobileMenuOpen() {
-    redirectToURLWithModalState(this.props, 'mobilemenu');
+    const {isAuthenticated , history } = this.props;
+    if (!isAuthenticated) {
+     const path = pathByRouteName('LoginPage', routeConfiguration());
+     history.push('/login');
+     //  if (config.dev) {
+     //    history.push(path);
+     //  } else if (typeof window !== 'undefined') {
+     //    window.location = path;
+     //  }
+
+    }
+    else{
+      redirectToURLWithModalState(this.props, 'mobilemenu');
+    }
   }
 
   handleMobileMenuClose() {
@@ -89,54 +102,13 @@ class TopbarComponent extends Component {
   }
 
   handleMobileSearchOpen() {
-    redirectToURLWithModalState(this.props, 'mobilesearch');
+    //redirectToURLWithModalState(this.props, 'mobilesearch');
+    window.location.replace('/');
   }
 
   handleMobileSearchClose() {
     redirectToURLWithoutModalState(this.props, 'mobilesearch');
   }
-
-  DisplaySearch() {
-   // document.getElementById("displaySearch").style.display = "inline";
-   let x = document.getElementById('displaySearch');
-   let y = document.getElementById('hideLogo');
-   let z = document.getElementById('displayShortlogo');
-   if (x.className === (css.mystyle1) ) {
-     x.className = (css.mystyle);
-     x.className = "animate__animated animate__slideInRight ";
-     y.className = (css.mystyle1);
-     z.className = (css.mystyle);
-   } 
-   
-   else  {
-    x.className = (css.mystyle1);
-    y.className = (css.mystyle);
-    z.className = (css.mystyle1);
-    }
- 
-  }
-
-//   HideLogo() {
-//  // document.getElementById("hideLogo").style.display = "none";
-//   var y = document.getElementById('hideLogo');
-//      if (y.style.display =='block') {
-//       y.style.display = 'none';
-//     } else {
-//      y.style.display = 'block';
-//    }
-//  }
-  
-//   DisplayShortlogo() {
-//    // document.getElementById("displayShortlogo").style.display = "inline";
-
-//     var z = document.getElementById('displayShortlogo');
-//     if (z.style.display =='none') {
-//       z.style.display = 'block';
-//     } else {
-//       z.style.display = 'none';
-//    }
-//   }
- 
 
   handleSubmit(values) {
     const { currentSearchParams } = this.props;
@@ -147,6 +119,7 @@ class TopbarComponent extends Component {
       keywords,
     };
     history.push(createResourceLocatorString('SearchPage', routeConfiguration(), {}, searchParams));
+
   }
 
   handleLogout() {
@@ -227,7 +200,7 @@ class TopbarComponent extends Component {
     };
 
     const classes = classNames(rootClassName || css.root, className);
-
+   if (!isAuthenticated){
     return (
       <div className={classes}>
         <LimitedAccessBanner
@@ -238,52 +211,52 @@ class TopbarComponent extends Component {
           currentPage={currentPage}
         />
         <div className={classNames(mobileRootClassName || css.container, mobileClassName)}>
-        {/* <NamedLink className={css.logod}  name="LandingPage">
-         TRYSTATE.FM
-        </NamedLink> */}
+          {/* <NamedLink className={css.logod}  name="LandingPage">
+           TRYSTATE.FM
+           </NamedLink> */}
        
-       <div id = "displayShortlogo"   className={css.mystyle1} >
-         <div className={css.shortlogo}>
-           <ShortLogoIcon/>
-           </div>
-         
-        </div>
-          
-        <div id = "hideLogo" className={css.hideLogo}  >
-         <NamedLink  className={css.logod}  name="LandingPage">
-           <Logo
-            format="mobile"
-           className={css.logo}
-           alt={intl.formatMessage({ id: 'TopbarMobile.logo' })}
-          />
-          </NamedLink>
-        </div>
-
-        <Button
+        <div className={css.logIn}>
+          <Button className={css.logIn1}
             rootClassName={css.searchMenu}
-            onClick={ this.DisplaySearch}
+            onClick={this.handleMobileSearchOpen}
             title={intl.formatMessage({ id: 'Topbar.searchIcon' })}
           >
             <SearchIcon className={css.searchMenuIcon} />
-        </Button>
-        <div id = "displaySearch" className={css.mystyle1} >
-         <TopbarSearchForm
-              onSubmit={this.handleSubmit}
-              initialValues={initialSearchFormValues}
-              isMobile
-            />
+          </Button>
+          <span className={css.logIn0} onClick={this.handleMobileSearchOpen}>Browse</span>
+        
         </div>
-        <Button
-
+        <div >
+          {/* <Button className={css.partner}
+            rootClassName={css.menu}
+            onClick={this.handleMobileMenuOpen}
+            title={intl.formatMessage({ id: 'Topbar.menuIcon' })}
+          >
+           
+          </Button> */}
+          {/* <div className={css.iconplus}> <i className="fal fa-plus-circle "></i></div>
+             */}
+             <div className={css.partnericon}>
+              <NamedLink name="NewListingPage">
+                <BecomeApartnerIcon />
+              </NamedLink>
+            
+            </div>
+            {notificationDot}
+        </div>
+        <div className={css.logIn}>
+        
+           <Button className={css.logIn1}
             rootClassName={css.menu}
             onClick={this.handleMobileMenuOpen}
             title={intl.formatMessage({ id: 'Topbar.menuIcon' })}
          >
-           <div className={css.partnericon}>
-            <MenuIcon  />
-            </div>
+            <MenuIcon className={css.menuIcon} />
             {notificationDot}
-        </Button>
+          </Button>
+         <span className={css.logIn0}>Log in</span>
+         
+        </div>
         </div>
         <div className={css.desktop}>
           <TopbarDesktop
@@ -343,10 +316,131 @@ class TopbarComponent extends Component {
         <GenericError show={showGenericError} />
       </div>
     );
-  }
+   }
+   else if (isAuthenticated){
+    return (
+      <div className={classes}>
+        <LimitedAccessBanner
+          isAuthenticated={isAuthenticated}
+          authScopes={authScopes}
+          currentUser={currentUser}
+          onLogout={this.handleLogout}
+          currentPage={currentPage}
+        />
+        <div className={classNames(mobileRootClassName || css.container, mobileClassName)}>
+          {/* <NamedLink className={css.logod}  name="LandingPage">
+           TRYSTATE.FM
+           </NamedLink> */}
+       
+        <div className={css.logIn}>
+          <Button className={css.logIn1}
+            rootClassName={css.searchMenu}
+            onClick={this.handleMobileSearchOpen}
+            title={intl.formatMessage({ id: 'Topbar.searchIcon' })}
+          >
+            <SearchIcon className={css.searchMenuIcon} />
+          </Button>
+          <span className={css.logIn0} onClick={this.handleMobileSearchOpen}>Browse</span>
+        </div>
+        <div >
+          {/* <Button className={css.partner}
+            rootClassName={css.menu}
+            onClick={this.handleMobileMenuOpen}
+            title={intl.formatMessage({ id: 'Topbar.menuIcon' })}
+          >
+           
+          </Button> */}
+          {/* <div className={css.iconplus}> <i className="fal fa-plus-circle "></i></div>
+             */}
+             <div className={css.partnericon}>
+              <NamedLink name="NewListingPage">
+                <BecomeApartnerIcon />
+              </NamedLink>
+            
+            </div>
+            {notificationDot}
+        </div>
+        <div className={css.logIn}>
+        
+           <Button className={css.logIn1}
+            rootClassName={css.menu}
+            onClick={this.handleMobileMenuOpen}
+            title={intl.formatMessage({ id: 'Topbar.menuIcon' })}
+         >
+            <MenuIcon className={css.menuIcon} />
+            {notificationDot}
+          </Button>
+        
+         <span className={css.logIn0}>Profile</span>
+        </div>
+        </div>
+        <div className={css.desktop}>
+          <TopbarDesktop
+            className={desktopClassName}
+            currentUserHasListings={currentUserHasListings}
+            currentUser={currentUser}
+            currentPage={currentPage}
+            initialSearchFormValues={initialSearchFormValues}
+            intl={intl}
+            isAuthenticated={isAuthenticated}
+            notificationCount={notificationCount}
+            onLogout={this.handleLogout}
+            onSearchSubmit={this.handleSubmit}
+          />
+        </div>
+        <Modal
+          id="TopbarMobileMenu"
+          isOpen={isMobileMenuOpen}
+          onClose={this.handleMobileMenuClose}
+          usePortal
+          onManageDisableScrolling={onManageDisableScrolling}
+        >
+          {authInProgress ? null : mobileMenu}
+        </Modal>
+        <Modal
+          id="TopbarMobileSearch"
+          containerClassName={css.modalContainer}
+          isOpen={isMobileSearchOpen}
+          onClose={this.handleMobileSearchClose}
+          usePortal
+          onManageDisableScrolling={onManageDisableScrolling}
+        >
+          <div className={css.searchContainer}>
+            <TopbarSearchForm
+              onSubmit={this.handleSubmit}
+              initialValues={initialSearchFormValues}
+              isMobile
+            />
+            <p className={css.mobileHelp}>
+              <FormattedMessage id="Topbar.mobileSearchHelp" />
+            </p>
+          </div>
+        </Modal>
+        <ModalMissingInformation
+          id="MissingInformationReminder"
+          containerClassName={css.missingInformationModal}
+          currentUser={currentUser}
+          currentUserHasListings={currentUserHasListings}
+          currentUserHasOrders={currentUserHasOrders}
+          location={location}
+          onManageDisableScrolling={onManageDisableScrolling}
+          onResendVerificationEmail={onResendVerificationEmail}
+          sendVerificationEmailInProgress={sendVerificationEmailInProgress}
+          sendVerificationEmailError={sendVerificationEmailError}
+        />
+
+        <GenericError show={showGenericError} />
+      </div>
+    );
+
+
+
+
+   }
+  } 
 }
 
-TopbarComponent.defaultProps = {
+BotbarComponent.defaultProps = {
   className: null,
   rootClassName: null,
   desktopClassName: null,
@@ -362,7 +456,7 @@ TopbarComponent.defaultProps = {
 
 const { array, func, number, shape, string } = PropTypes;
 
-TopbarComponent.propTypes = {
+BotbarComponent.propTypes = {
   className: string,
   rootClassName: string,
   desktopClassName: string,
@@ -401,11 +495,11 @@ TopbarComponent.propTypes = {
   intl: intlShape.isRequired,
 };
 
-const Topbar = compose(
+const Botbar = compose(
   withViewport,
   injectIntl
-)(TopbarComponent);
+)(BotbarComponent);
 
-Topbar.displayName = 'Topbar';
+Botbar.displayName = 'Botbar';
 
-export default Topbar;
+export default Botbar;

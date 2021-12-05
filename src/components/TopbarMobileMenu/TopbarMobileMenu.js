@@ -9,9 +9,9 @@ import classNames from 'classnames';
 import { ACCOUNT_SETTINGS_PAGES } from '../../routeConfiguration';
 import { propTypes } from '../../util/types';
 import { ensureCurrentUser } from '../../util/data';
-import { AvatarLarge, InlineTextButton, NamedLink, NotificationBadge } from '../../components';
-
+import { AvatarLarge, NamedRedirect ,InlineTextButton, NamedLink, NotificationBadge } from '../../components';
 import css from './TopbarMobileMenu.module.css';
+import { LoginForm } from '../../forms';
 
 const TopbarMobileMenu = props => {
   const {
@@ -58,6 +58,7 @@ const TopbarMobileMenu = props => {
             <FormattedMessage id="TopbarMobileMenu.newListingLink" />
           </NamedLink>
         </div>
+        
       </div>
     );
   }

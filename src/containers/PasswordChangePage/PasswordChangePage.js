@@ -16,7 +16,7 @@ import {
   UserNav,
 } from '../../components';
 import { PasswordChangeForm } from '../../forms';
-import { TopbarContainer } from '../../containers';
+import { TopbarContainer , BotbarContainer  } from '../../containers';
 
 import { changePassword, changePasswordClear, resetPassword } from './PasswordChangePage.duck';
 import css from './PasswordChangePage.module.css';
@@ -59,6 +59,11 @@ export const PasswordChangePageComponent = props => {
       <LayoutSideNavigation>
         <LayoutWrapperTopbar>
           <TopbarContainer
+            currentPage="PasswordChangePage"
+            desktopClassName={css.desktopTopbar}
+            mobileClassName={css.mobileTopbar}
+          />
+           <BotbarContainer
             currentPage="PasswordChangePage"
             desktopClassName={css.desktopTopbar}
             mobileClassName={css.mobileTopbar}

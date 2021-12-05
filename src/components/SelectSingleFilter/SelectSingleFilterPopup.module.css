@@ -31,7 +31,7 @@
   @apply --marketplaceButtonStyles;
   @apply --marketplaceSearchFilterLabelFontStyles;
   font-weight: var(--fontWeightSemiBold);
-
+  display:none;
   padding: var(--marketplaceButtonSmallDesktopPadding);
   width: auto;
   height: auto;

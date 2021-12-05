@@ -8,19 +8,29 @@
 .label {
   @apply --marketplaceButtonStylesSecondary;
   @apply --marketplaceSearchFilterLabelFontStyles;
+  
 
   padding: var(--marketplaceButtonSmallDesktopPadding);
   width: auto;
   height: auto;
   min-height: 0;
   border-radius: 4px;
-
+  font-size: 16px;
+  background-color: #454545 ;
+  color: white;
+  padding-right: 33.8px;
+  padding-left: 33.8px;
   &:focus {
     outline: none;
     background-color: var(--matterColorLight);
     border-color: transparent;
     text-decoration: none;
     box-shadow: var(--boxShadowFilterButton);
+  }
+  &:hover,
+  &:focus {
+      background-color: #454545;
+      border-color:white;
   }
 }
 
@@ -35,7 +45,7 @@
   min-height: 0;
   border-radius: 4px;
   border: 1px solid var(--marketplaceColor);
-
+  font-size: 16px;
   &:hover,
   &:focus {
     border: 1px solid var(--marketplaceColorDark);
