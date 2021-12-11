@@ -15,7 +15,8 @@ import { propTypes } from '../../util/types';
 import { getListingsById } from '../../ducks/marketplaceData.duck';
 import { manageDisableScrolling, isScrollingDisabled } from '../../ducks/UI.duck';
 import { SearchMap, ModalInMobile, Page } from '../../components';
-import { TopbarContainer } from '../../containers';
+import { TopbarContainer , BotbarContainer } from '../../containers';
+
 
 import { searchMapListings, setActiveListing } from './SearchPage.duck';
 import {
@@ -35,7 +36,8 @@ export class SearchPageComponent extends Component {
     super(props);
 
     this.state = {
-      isSearchMapOpenOnMobile: props.tab === 'map',
+      isSearchMapOpenOnMobile: true,
+      //props.tab === 'map',
       isMobileModalOpen: false,
     };
 
@@ -169,6 +171,12 @@ export class SearchPageComponent extends Component {
           currentPage="SearchPage"
           currentSearchParams={urlQueryParams}
         />
+        <BotbarContainer
+          className={topbarClasses}
+          currentPage="SearchPage"
+          currentSearchParams={urlQueryParams}
+        />
+       
         <div className={css.container}>
           <MainPanel
             urlQueryParams={validQueryParams}
@@ -186,17 +194,12 @@ export class SearchPageComponent extends Component {
             showAsModalMaxWidth={MODAL_BREAKPOINT}
             history={history}
           />
-          <ModalInMobile
-            className={css.mapPanel}
-            id="SearchPage.map"
-            isModalOpenOnMobile={this.state.isSearchMapOpenOnMobile}
-            onClose={() => this.setState({ isSearchMapOpenOnMobile: false })}
-            showAsModalMaxWidth={MODAL_BREAKPOINT}
-            onManageDisableScrolling={onManageDisableScrolling}
-          >
-            <div className={css.mapWrapper}>
-              {shouldShowSearchMap ? (
-                <SearchMap
+          
+          <div className={css.mapWrapper}>
+              {/* {shouldShowSearchMap ? (
+               
+              ) : null} */}
+               <SearchMap
                   reusableContainerClassName={css.map}
                   activeListingId={activeListingId}
                   bounds={bounds}
@@ -210,9 +213,17 @@ export class SearchPageComponent extends Component {
                   }}
                   messages={intl.messages}
                 />
-              ) : null}
             </div>
-          </ModalInMobile>
+          {/* <ModalInMobile
+            className={css.mapPanel}
+            id="SearchPage.map"
+            isModalOpenOnMobile={this.state.isSearchMapOpenOnMobile}
+            onClose={() => this.setState({ isSearchMapOpenOnMobile: false })}
+            showAsModalMaxWidth={MODAL_BREAKPOINT}
+            onManageDisableScrolling={onManageDisableScrolling}
+          >
+            
+          </ModalInMobile> */}
         </div>
       </Page>
     );

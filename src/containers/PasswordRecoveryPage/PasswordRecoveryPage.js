@@ -17,7 +17,7 @@ import {
   Footer,
 } from '../../components';
 import { PasswordRecoveryForm } from '../../forms';
-import { TopbarContainer } from '../../containers';
+import { TopbarContainer , BotbarContainer  } from '../../containers';
 
 import {
   recoverPassword,
@@ -139,6 +139,7 @@ export const PasswordRecoveryPageComponent = props => {
       <LayoutSingleColumn>
         <LayoutWrapperTopbar>
           <TopbarContainer />
+          <BotbarContainer />
         </LayoutWrapperTopbar>
         <LayoutWrapperMain className={css.layoutWrapperMain}>
           <div className={css.root}>{content}</div>

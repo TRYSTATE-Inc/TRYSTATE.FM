@@ -253,7 +253,7 @@ class MainPanel extends Component {
             );
           })}
         </SearchFiltersPrimary>
-        <SearchFiltersMobile
+        {/* <SearchFiltersMobile
           className={css.searchFiltersMobile}
           urlQueryParams={urlQueryParams}
           sortByComponent={sortBy('mobile')}
@@ -283,7 +283,7 @@ class MainPanel extends Component {
               />
             );
           })}
-        </SearchFiltersMobile>
+        </SearchFiltersMobile> */}
         {isSecondaryFiltersOpen ? (
           <div className={classNames(css.searchFiltersPanel)}>
             <SearchFiltersSecondary
@@ -320,13 +320,15 @@ class MainPanel extends Component {
                 <FormattedMessage id="SearchPage.searchError" />
               </h2>
             ) : null}
-            <SearchResultsPanel
+            {/* needs to be un commented and revised to 
+            show listing studios cards */}
+            { <SearchResultsPanel
               className={css.searchListingsPanel}
               listings={listings}
               pagination={listingsAreLoaded ? pagination : null}
               search={searchParamsForPagination}
               setActiveListing={onActivateListing}
-            />
+            /> }
           </div>
         )}
       </div>

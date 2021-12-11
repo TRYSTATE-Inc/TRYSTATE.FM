@@ -36,7 +36,7 @@ import {
   TermsOfService,
 } from '../../components';
 import { ConfirmSignupForm, LoginForm, SignupForm } from '../../forms';
-import { TopbarContainer } from '../../containers';
+import { TopbarContainer , BotbarContainer } from '../../containers';
 import { login, authenticationInProgress, signup, signupWithIdp } from '../../ducks/Auth.duck';
 import { isScrollingDisabled } from '../../ducks/UI.duck';
 import { sendVerificationEmail } from '../../ducks/user.duck';
@@ -106,7 +106,7 @@ export class AuthenticationPageComponent extends Component {
     if (isAuthenticated && from) {
       return <Redirect to={from} />;
     } else if (isAuthenticated && currentUserLoaded && !showEmailVerification) {
-      return <NamedRedirect name="LandingPage" />;
+      return <NamedRedirect name="SearchPage" />;
     }
 
     const loginErrorMessage = (
@@ -209,7 +209,7 @@ export class AuthenticationPageComponent extends Component {
       const fromParam = from ? `from=${from}` : '';
 
       // Default route where user is returned after successfull authentication
-      const defaultReturn = pathByRouteName('LandingPage', routes);
+      const defaultReturn = pathByRouteName('SearchPage', routes);
       const defaultReturnParam = defaultReturn ? `&defaultReturn=${defaultReturn}` : '';
 
       // Route for confirming user data before creating a new user
@@ -403,6 +403,7 @@ export class AuthenticationPageComponent extends Component {
         <LayoutSingleColumn>
           <LayoutWrapperTopbar>
             <TopbarContainer className={topbarClasses} />
+            <BotbarContainer className={topbarClasses} />
           </LayoutWrapperTopbar>
           <LayoutWrapperMain className={css.layoutWrapperMain}>
             <div className={css.root}>

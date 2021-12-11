@@ -4,7 +4,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { FormattedMessage, injectIntl, intlShape } from '../../util/reactIntl';
 import { isScrollingDisabled } from '../../ducks/UI.duck';
-import { TopbarContainer } from '../../containers';
+import { TopbarContainer , BotbarContainer } from '../../containers';
 import {
   Page,
   LayoutSideNavigation,
@@ -50,6 +50,7 @@ const TermsOfServicePageComponent = props => {
       <LayoutSideNavigation>
         <LayoutWrapperTopbar>
           <TopbarContainer currentPage="TermsOfServicePage" />
+          <BotbarContainer currentPage="TermsOfServicePage" />
         </LayoutWrapperTopbar>
         <LayoutWrapperSideNav tabs={tabs} />
         <LayoutWrapperMain>

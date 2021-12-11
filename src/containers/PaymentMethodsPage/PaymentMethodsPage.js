@@ -19,7 +19,7 @@ import {
   Page,
   UserNav,
 } from '../../components';
-import { TopbarContainer } from '../../containers';
+import { TopbarContainer , BotbarContainer } from '../../containers';
 import { PaymentMethodsForm } from '../../forms';
 import { createStripeSetupIntent, stripeCustomer } from './PaymentMethodsPage.duck.js';
 
@@ -149,6 +149,11 @@ const PaymentMethodsPageComponent = props => {
       <LayoutSideNavigation>
         <LayoutWrapperTopbar>
           <TopbarContainer
+            currentPage="PaymentMethodsPage"
+            desktopClassName={css.desktopTopbar}
+            mobileClassName={css.mobileTopbar}
+          />
+           <BotbarContainer
             currentPage="PaymentMethodsPage"
             desktopClassName={css.desktopTopbar}
             mobileClassName={css.mobileTopbar}

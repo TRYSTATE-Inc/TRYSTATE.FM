@@ -42,20 +42,7 @@ const FilterComponent = props => {
         />
       );
     }
-    case 'SelectMultipleFilter': {
-      return (
-        <SelectMultipleFilter
-          id={componentId}
-          label={label}
-          name={name}
-          queryParamNames={queryParamNames}
-          initialValues={initialValues(queryParamNames)}
-          onSubmit={getHandleChangedValueFn(useHistoryPush)}
-          {...config}
-          {...rest}
-        />
-      );
-    }
+  
     case 'BookingDateRangeFilter': {
       return (
         <BookingDateRangeFilter

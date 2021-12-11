@@ -13,10 +13,13 @@ import {
   MenuContent,
   MenuItem,
   NamedLink,
+  IconSearch,
 } from '../../components';
 import { TopbarSearchForm } from '../../forms';
 
 import css from './TopbarDesktop.module.css';
+
+
 
 const TopbarDesktop = props => {
   const {
@@ -131,26 +134,44 @@ const TopbarDesktop = props => {
       </span>
     </NamedLink>
   );
-
+  
   return (
     <nav className={classes}>
-      <NamedLink className={css.logoLink} name="LandingPage">
-        <Logo
-          format="desktop"
-          className={css.logo}
-          alt={intl.formatMessage({ id: 'TopbarDesktop.logo' })}
-        />
-      </NamedLink>
-      {search}
-      <NamedLink className={css.createListingLink} name="NewListingPage">
+      {/* <NamedLink className={css.logod}  name="LandingPage">
+         saunatime
+      </NamedLink> */}
+      <a href={'/'}  className={css.logod} >
+        
+          <Logo
+            format="desktop"
+            className={css.logo}
+            alt={intl.formatMessage({ id: 'TopbarDesktop.logo' })}
+          />
+        
+      </a>
+      <div className ={css.seccontain} >
+       
+       
+        <IconSearch className={css.space2}/>
+         
+         {search}
+        
+       
+      </div>
+      
+       <div className ={css.thirdcontain} >
+        <NamedLink className={css.createListingLink}  name="NewListingPage">
+       
         <span className={css.createListing}>
+         
           <FormattedMessage id="TopbarDesktop.createListing" />
         </span>
-      </NamedLink>
-      {inboxLink}
-      {profileMenu}
-      {signupLink}
-      {loginLink}
+       </NamedLink>
+       {inboxLink}
+       {profileMenu}
+       {signupLink}
+       {loginLink}
+      </div>
     </nav>
   );
 };

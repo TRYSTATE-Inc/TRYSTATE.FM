@@ -1,7 +1,7 @@
 import React from 'react';
 import config from '../../config';
 import { twitterPageURL } from '../../util/urlHelpers';
-import { StaticPage, TopbarContainer } from '../../containers';
+import { StaticPage, TopbarContainer ,BotbarContainer } from '../../containers';
 import {
   LayoutSingleColumn,
   LayoutWrapperTopbar,
@@ -32,8 +32,9 @@ const AboutPage = () => {
       <LayoutSingleColumn>
         <LayoutWrapperTopbar>
           <TopbarContainer />
+          <BotbarContainer />
         </LayoutWrapperTopbar>
-
+        
         <LayoutWrapperMain className={css.staticPageWrapper}>
           <h1 className={css.pageTitle}>Experience the unique Finnish home sauna.</h1>
           <img className={css.coverImage} src={image} alt="My first ice cream." />

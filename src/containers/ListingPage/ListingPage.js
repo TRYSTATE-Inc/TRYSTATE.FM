@@ -39,7 +39,7 @@ import {
   Footer,
   BookingPanel,
 } from '../../components';
-import { TopbarContainer, NotFoundPage } from '../../containers';
+import { TopbarContainer, NotFoundPage ,BotbarContainer } from '../../containers';
 
 import { sendEnquiry, fetchTransactionLineItems, setInitialValues } from './ListingPage.duck';
 import SectionImages from './SectionImages';
@@ -272,7 +272,10 @@ export class ListingPageComponent extends Component {
       return (
         <Page title={errorTitle} scrollingDisabled={scrollingDisabled}>
           <LayoutSingleColumn className={css.pageRoot}>
-            <LayoutWrapperTopbar>{topbar}</LayoutWrapperTopbar>
+            <LayoutWrapperTopbar>
+              {topbar}
+              <BotbarContainer />
+            </LayoutWrapperTopbar>
             <LayoutWrapperMain>
               <p className={css.errorText}>
                 <FormattedMessage id="ListingPage.errorLoadingListingMessage" />

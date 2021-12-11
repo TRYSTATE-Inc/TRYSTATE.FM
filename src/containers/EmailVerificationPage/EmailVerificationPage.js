@@ -19,7 +19,7 @@ import {
   NamedRedirect,
 } from '../../components';
 import { EmailVerificationForm } from '../../forms';
-import { TopbarContainer } from '../../containers';
+import { TopbarContainer , BotbarContainer } from '../../containers';
 
 import css from './EmailVerificationPage.module.css';
 
@@ -69,7 +69,7 @@ export const EmailVerificationPageComponent = props => {
   // If the verify API call is successfull and the user has verified email
   // We can redirect user forward from email verification page.
   if (isVerified && user && user.attributes.emailVerified) {
-    return <NamedRedirect name="LandingPage" />;
+    return <NamedRedirect name="SearchPage" />;
   }
 
   return (
@@ -77,6 +77,7 @@ export const EmailVerificationPageComponent = props => {
       <LayoutSingleColumn>
         <LayoutWrapperTopbar>
           <TopbarContainer />
+          <BotbarContainer />
         </LayoutWrapperTopbar>
         <LayoutWrapperMain className={css.layoutWrapperMain}>
           <div className={css.root}>

@@ -23,7 +23,7 @@ import {
   Reviews,
   ButtonTabNavHorizontal,
 } from '../../components';
-import { TopbarContainer, NotFoundPage } from '../../containers';
+import { TopbarContainer, NotFoundPage  , BotbarContainer } from '../../containers';
 import config from '../../config';
 
 import css from './ProfilePage.module.css';
@@ -242,6 +242,7 @@ export class ProfilePageComponent extends Component {
         <LayoutSideNavigation>
           <LayoutWrapperTopbar>
             <TopbarContainer currentPage="ProfilePage" />
+            <BotbarContainer currentPage="ProfilePage" />
           </LayoutWrapperTopbar>
           <LayoutWrapperSideNav className={css.aside}>{asideContent}</LayoutWrapperSideNav>
           <LayoutWrapperMain>{content}</LayoutWrapperMain>

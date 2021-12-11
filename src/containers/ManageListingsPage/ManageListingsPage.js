@@ -16,7 +16,7 @@ import {
   LayoutWrapperFooter,
   Footer,
 } from '../../components';
-import { TopbarContainer } from '../../containers';
+import { TopbarContainer , BotbarContainer } from '../../containers';
 
 import { closeListing, openListing, getOwnListingsById } from './ManageListingsPage.duck';
 import css from './ManageListingsPage.module.css';
@@ -114,6 +114,7 @@ export class ManageListingsPageComponent extends Component {
         <LayoutSingleColumn>
           <LayoutWrapperTopbar>
             <TopbarContainer currentPage="ManageListingsPage" />
+            <BotbarContainer currentPage="ManageListingsPage" />
             <UserNav selectedPageName="ManageListingsPage" />
           </LayoutWrapperTopbar>
           <LayoutWrapperMain>

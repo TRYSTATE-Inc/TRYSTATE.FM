@@ -17,7 +17,7 @@ import {
   NamedLink,
 } from '../../components';
 import { ProfileSettingsForm } from '../../forms';
-import { TopbarContainer } from '../../containers';
+import { TopbarContainer , BotbarContainer  } from '../../containers';
 
 import { updateProfile, uploadImage } from './ProfileSettingsPage.duck';
 import css from './ProfileSettingsPage.module.css';
@@ -93,6 +93,7 @@ export class ProfileSettingsPageComponent extends Component {
         <LayoutSingleColumn>
           <LayoutWrapperTopbar>
             <TopbarContainer currentPage="ProfileSettingsPage" />
+            <BotbarContainer currentPage="ProfileSettingsPage" />
             <UserNav selectedPageName="ProfileSettingsPage" />
           </LayoutWrapperTopbar>
           <LayoutWrapperMain>

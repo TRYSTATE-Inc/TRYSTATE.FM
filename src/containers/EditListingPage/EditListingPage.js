@@ -23,7 +23,7 @@ import {
 } from '../../ducks/stripeConnectAccount.duck';
 
 import { EditListingWizard, NamedRedirect, Page } from '../../components';
-import { TopbarContainer } from '../../containers';
+import { TopbarContainer , BotbarContainer  } from '../../containers';
 
 import {
   requestFetchBookings,
@@ -176,6 +176,7 @@ export const EditListingPageComponent = props => {
           desktopClassName={css.desktopTopbar}
           mobileClassName={css.mobileTopbar}
         />
+        
         <EditListingWizard
           id="EditListingWizard"
           className={css.wizard}

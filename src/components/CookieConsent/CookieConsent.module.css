@@ -18,10 +18,12 @@
   /* Colors */
   background-color: var(--matterColor);
   color: var(--matterColorNegative);
+  display: none;
 
   /* Cover Topbar on desktop */
   @media (--viewportMedium) {
     padding: 8px 0;
+    display: none;
   }
 }
 

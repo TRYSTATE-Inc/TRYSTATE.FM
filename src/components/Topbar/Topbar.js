@@ -24,7 +24,9 @@ import { TopbarSearchForm } from '../../forms';
 
 import MenuIcon from './MenuIcon';
 import SearchIcon from './SearchIcon';
+import ShortLogoIcon from './ShortLogoIcon';
 import css from './Topbar.module.css';
+
 
 const MAX_MOBILE_SCREEN_WIDTH = 768;
 
@@ -49,7 +51,7 @@ const redirectToURLWithoutModalState = (props, modalStateParam) => {
 const GenericError = props => {
   const { show } = props;
   const classes = classNames(css.genericError, {
-    [css.genericErrorVisible]: show,
+    [css.genericErrorinline]: show,
   });
   return (
     <div className={classes}>
@@ -95,17 +97,55 @@ class TopbarComponent extends Component {
     redirectToURLWithoutModalState(this.props, 'mobilesearch');
   }
 
+  DisplaySearch() {
+   // document.getElementById("displaySearch").style.display = "inline";
+   let x = document.getElementById('displaySearch');
+   let y = document.getElementById('hideLogo');
+   let z = document.getElementById('displayShortlogo');
+   if (x.className === (css.mystyle1) ) {
+     x.className = (css.mystyle);
+     x.className = "animate__animated animate__slideInRight ";
+     y.className = (css.mystyle1);
+     z.className = (css.mystyle);
+   } 
+   
+   else  {
+    x.className = (css.mystyle1);
+    y.className = (css.mystyle);
+    z.className = (css.mystyle1);
+    }
+ 
+  }
+
+//   HideLogo() {
+//  // document.getElementById("hideLogo").style.display = "none";
+//   var y = document.getElementById('hideLogo');
+//      if (y.style.display =='block') {
+//       y.style.display = 'none';
+//     } else {
+//      y.style.display = 'block';
+//    }
+//  }
+  
+//   DisplayShortlogo() {
+//    // document.getElementById("displayShortlogo").style.display = "inline";
+
+//     var z = document.getElementById('displayShortlogo');
+//     if (z.style.display =='none') {
+//       z.style.display = 'block';
+//     } else {
+//       z.style.display = 'none';
+//    }
+//   }
+ 
+
   handleSubmit(values) {
     const { currentSearchParams } = this.props;
-    const { search, selectedPlace } = values.location;
+    const keywords = values.keywords;
     const { history } = this.props;
-    const { origin, bounds } = selectedPlace;
-    const originMaybe = config.sortSearchByDistance ? { origin } : {};
     const searchParams = {
       ...currentSearchParams,
-      ...originMaybe,
-      address: search,
-      bounds,
+      keywords,
     };
     history.push(createResourceLocatorString('SearchPage', routeConfiguration(), {}, searchParams));
   }
@@ -113,7 +153,7 @@ class TopbarComponent extends Component {
   handleLogout() {
     const { onLogout, history } = this.props;
     onLogout().then(() => {
-      const path = pathByRouteName('LandingPage', routeConfiguration());
+      const path = pathByRouteName('LoginPage', routeConfiguration());
 
       // In production we ensure that data is really lost,
       // but in development mode we use stored values for debugging
@@ -199,28 +239,52 @@ class TopbarComponent extends Component {
           currentPage={currentPage}
         />
         <div className={classNames(mobileRootClassName || css.container, mobileClassName)}>
-          <Button
-            rootClassName={css.menu}
-            onClick={this.handleMobileMenuOpen}
-            title={intl.formatMessage({ id: 'Topbar.menuIcon' })}
-          >
-            <MenuIcon className={css.menuIcon} />
-            {notificationDot}
-          </Button>
-          <NamedLink
-            className={css.home}
-            name="LandingPage"
-            title={intl.formatMessage({ id: 'Topbar.logoIcon' })}
-          >
-            <Logo format="mobile" />
+        {/* <NamedLink className={css.logod}  name="LandingPage">
+         saunatime
+        </NamedLink> */}
+       
+       <div id = "displayShortlogo"   className={css.mystyle1} >
+         <div className={css.shortlogo}>
+           <ShortLogoIcon/>
+           </div>
+         
+        </div>
+          
+        <div id = "hideLogo" className={css.hideLogo}  >
+         <NamedLink  className={css.logod}  name="LandingPage">
+           <Logo
+            format="mobile"
+           className={css.logo}
+           alt={intl.formatMessage({ id: 'TopbarMobile.logo' })}
+          />
           </NamedLink>
-          <Button
+        </div>
+
+        <Button
             rootClassName={css.searchMenu}
-            onClick={this.handleMobileSearchOpen}
+            onClick={ this.DisplaySearch}
             title={intl.formatMessage({ id: 'Topbar.searchIcon' })}
           >
             <SearchIcon className={css.searchMenuIcon} />
-          </Button>
+        </Button>
+        <div id = "displaySearch" className={css.mystyle1} >
+         <TopbarSearchForm
+              onSubmit={this.handleSubmit}
+              initialValues={initialSearchFormValues}
+              isMobile
+            />
+        </div>
+        <Button
+
+            rootClassName={css.menu}
+            onClick={this.handleMobileMenuOpen}
+            title={intl.formatMessage({ id: 'Topbar.menuIcon' })}
+         >
+           <div className={css.partnericon}>
+            <MenuIcon  />
+            </div>
+            {notificationDot}
+        </Button>
         </div>
         <div className={css.desktop}>
           <TopbarDesktop

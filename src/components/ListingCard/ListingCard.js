@@ -25,10 +25,7 @@ const priceData = (price, intl) => {
         { id: 'ListingCard.unsupportedPrice' },
         { currency: price.currency }
       ),
-      priceTitle: intl.formatMessage(
-        { id: 'ListingCard.unsupportedPriceTitle' },
-        { currency: price.currency }
-      ),
+     
     };
   }
   return {};

@@ -17,7 +17,7 @@ import {
   UserNav,
 } from '../../components';
 import { ContactDetailsForm } from '../../forms';
-import { TopbarContainer } from '../../containers';
+import { TopbarContainer , BotbarContainer  } from '../../containers';
 
 import { isScrollingDisabled } from '../../ducks/UI.duck';
 import {
@@ -77,6 +77,11 @@ export const ContactDetailsPageComponent = props => {
       <LayoutSideNavigation>
         <LayoutWrapperTopbar>
           <TopbarContainer
+            currentPage="ContactDetailsPage"
+            desktopClassName={css.desktopTopbar}
+            mobileClassName={css.mobileTopbar}
+          />
+          <BotbarContainer
             currentPage="ContactDetailsPage"
             desktopClassName={css.desktopTopbar}
             mobileClassName={css.mobileTopbar}

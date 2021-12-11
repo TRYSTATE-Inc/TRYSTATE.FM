@@ -25,7 +25,7 @@ import {
   LayoutWrapperFooter,
   Footer,
 } from '../../components';
-import { TopbarContainer } from '../../containers';
+import { TopbarContainer , BotbarContainer  } from '../../containers';
 
 import {
   acceptSale,
@@ -263,6 +263,7 @@ export const TransactionPageComponent = props => {
       <LayoutSingleColumn>
         <LayoutWrapperTopbar>
           <TopbarContainer />
+          <BotbarContainer />
         </LayoutWrapperTopbar>
         <LayoutWrapperMain>
           <div className={css.root}>{panel}</div>

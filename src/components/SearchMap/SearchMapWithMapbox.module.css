@@ -23,3 +23,11 @@
 .infoCardContainer {
   z-index: 1;
 }
+
+.virtualDiv{
+  height: 550px !important;
+  width: 20px !important;
+  z-index: 300000000;
+  
+ 
+ }
