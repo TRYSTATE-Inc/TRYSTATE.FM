@@ -5,6 +5,9 @@
  * so that the Topbar is not rendered on top of it.*/
 
 .topbarBehindModal {
+    position: fixed;
+    bottom: 0;
+    left: 0;
     z-index: initial;
 }
 
@@ -14,9 +17,6 @@
     left: 0;
     /* We need to raise Topbar above .container */
     z-index: 2;
-    
-      
-    
 }
 
 .container {
@@ -99,7 +99,15 @@
     flex-direction: column;
     padding: 0;
     z-index: 1;
-    width: 40%;
+    width: 300px;
+    margin-top: 25rem;
+    @media(--viewportMedium) {
+        width: 485.89px;
+        margin-top: 0;
+    }
+    
+   
+    /*width: 100%;*/
     
 }
 
@@ -109,7 +117,6 @@
 
 .searchListingsPanel {
     flex-grow: 1;
-   
     
 }
 
@@ -151,6 +158,9 @@
 .mapWrapper {
     width: 100%;
     height: 100%;
+    position: fixed;
+    left: 0;
+    top: 60px;
 }
 
 .map {
@@ -158,7 +168,8 @@
     position: fixed;
     top: 60px;
     height: calc(100vh - 60px);
-    right: 0;
+    left: 0;
+    
     @media (--viewportMedium) {
         /* Map is fixed so that it doesn't scroll along search results */
         position: fixed;
@@ -168,7 +179,5 @@
         width: 100vw;
         height: calc(100vh - var(--topbarHeightDesktop));
     }
-    @media (--viewportLarge) {
-        width: 100vw;
-    }
+    
 }

@@ -5,6 +5,8 @@
   flex-direction:row ;
   background-color: var(--matterColorBright);
   position: relative;
+  padding-left: 0px !important;
+  margin-left: 45px;
 
 }
 

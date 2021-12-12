@@ -4,6 +4,7 @@
   border: 0;
   cursor: pointer;
   background-color: transparent;
+  margin-left: 0px !important;
 
   &:hover {
     background-color: transparent;

@@ -170,11 +170,8 @@ export class SearchPageComponent extends Component {
           className={topbarClasses}
           currentPage="SearchPage"
           currentSearchParams={urlQueryParams}
-        />
-        <BotbarContainer
-          className={topbarClasses}
-          currentPage="SearchPage"
-          currentSearchParams={urlQueryParams}
+          onOpenModal={this.onOpenMobileModal}
+          onCloseModal={this.onCloseMobileModal}
         />
        
         <div className={css.container}>
@@ -225,6 +222,12 @@ export class SearchPageComponent extends Component {
             
           </ModalInMobile> */}
         </div>
+        
+        <BotbarContainer
+          className={topbarClasses}
+          currentPage="SearchPage"
+          currentSearchParams={urlQueryParams}
+        />
       </Page>
     );
   }

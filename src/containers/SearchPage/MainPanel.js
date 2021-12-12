@@ -253,6 +253,7 @@ class MainPanel extends Component {
             );
           })}
         </SearchFiltersPrimary>
+        {/**/ }
         {/* <SearchFiltersMobile
           className={css.searchFiltersMobile}
           urlQueryParams={urlQueryParams}
@@ -284,6 +285,7 @@ class MainPanel extends Component {
             );
           })}
         </SearchFiltersMobile> */}
+        {/**/}
         {isSecondaryFiltersOpen ? (
           <div className={classNames(css.searchFiltersPanel)}>
             <SearchFiltersSecondary

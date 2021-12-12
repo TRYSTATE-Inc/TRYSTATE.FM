@@ -43,7 +43,6 @@
     /* Good aspect ratio should be less than 160/27 (width/height) */
     /* NOTE: extremely wide logos, need special handling. */
     width: 33.333333333333333%;
-    padding-left: 20px;
     object-fit: contain;
     object-position: left center;
     font-size: 69px;
@@ -55,6 +54,12 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     /* letter-spacing: 6px; */
     color: white ;
+}
+.tobparcontent
+{   width: 100%;
+    display: flex;
+    margin-left: 45px;
+    margin-right: 45px;
 }
 
 .space2 
@@ -80,9 +85,19 @@
     }
 }
 .seccontain{
+    width: 33.333333333333333%;
+    object-fit: contain;
     display: flex;
   
-    justify-content:center; 
+    
+}
+.searchcontainer
+{
+    width: fit-content;
+display: flex;
+margin: 0 auto;
+justify-content: center;
+
 }
 
 .search {
@@ -105,14 +120,13 @@
 
     width: 33.333333333333333%;
     display: flex;
-  justify-content:flex-end; 
+    justify-content:right; 
 }
 .createListingLink {
     @apply --TopbarDesktop_linkHover;
     @apply --marketplaceH5FontStyles;
     flex-shrink: 0;
     height: 100%;
-    padding: 0 12px 0 12px;
     color: var(--marketplaceColor);
     margin-top: 0;
     margin-bottom: 0;
@@ -226,7 +240,6 @@
     height: 100%;
     padding: 0 12px 0 12px;
     color: var(--matterColor);
-    display: none;
     &:hover {
         color: var(--matterColorDark);
     }
@@ -236,7 +249,7 @@
     @apply --TopbarDesktop_linkHover;
     flex-shrink: 0;
     height: 100%;
-    padding: 0 12px 0 12px;
+    margin-left: 20px;
     color: white;
 }
 
@@ -245,13 +258,11 @@
     @apply --marketplaceH5FontStyles;
     @apply --TopbarDesktop_label;
     font-size: 17px ;
-    padding: 0 12px 0 0;
+    justify-content: right;
     /* fill */
     
     /* shadows */
-    @media (--viewportLarge) {
-        padding: 0 24px 0 0;
-    }
+   
 }
 
 

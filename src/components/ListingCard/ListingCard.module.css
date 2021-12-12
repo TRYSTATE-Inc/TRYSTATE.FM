@@ -44,6 +44,7 @@
   flex-direction: row;
   padding: 16px 0 2px 0;
   background-color:  #454545;
+  height: 50px;
 }
 
 .price {
@@ -52,7 +53,6 @@
   flex-direction: column;
   justify-content: flex-start;
   flex-shrink: 0;
-  margin-right: 18px;
 }
 
 .priceValue {
@@ -63,7 +63,7 @@
   margin-top: 0;
   margin-bottom: 0;
   color: white;
-  border-right: white 1.2px solid;
+  border-right: white 2px solid;
   padding-right: 5px;
   padding-left: 7PX;
 
@@ -91,6 +91,7 @@
 .mainInfo {
   display: flex;
   flex-direction: column;
+  margin-left: 7px;
   
 }
 

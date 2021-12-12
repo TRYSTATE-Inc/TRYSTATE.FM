@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import PropTypes from 'prop-types';
 import { Form as FinalForm, Field } from 'react-final-form';
 import classNames from 'classnames';
@@ -24,13 +25,12 @@ class TopbarSearchFormComponent extends Component {
       this.searchInput.current.blur();
     }
   }
- 
+  
+  
   render() {
 
-
-    if (window.innerWidth > 768) 
-     {
       return (
+        
         <FinalForm
           {...this.props}
           onSubmit={this.onSubmit}
@@ -50,17 +50,16 @@ class TopbarSearchFormComponent extends Component {
                   render={({ input, meta }) => {
                     return (
                       <input
-                        className={
-                          isMobile
-                            ? css.mobileInputRoot
-                            : css.desktopInputRoot
+                        className={isMobile?css.mobileInputRoot:css.desktopInputRoot
                         }
+                        
                         {...input}
                         id="keyword-search"
                         ref={this.searchInput}
                         type="text"
+                        
                         placeholder={intl.formatMessage({
-                          id: 'TopbarSearchForm.placeholder',
+                          id: (isMobile?'TopbarSearchForm.placeholderMobile':'TopbarSearchForm.placeholder'),
                         })}
                         autoComplete="on"
                       />
@@ -74,54 +73,9 @@ class TopbarSearchFormComponent extends Component {
       );
     
 
-     }
     
-     else 
-     {
-      return (
-        <FinalForm
-          {...this.props}
-          onSubmit={this.onSubmit}
-          render={formRenderProps => {
-            const {
-              rootClassName,
-              className,
-              intl,
-              isMobile,
-              handleSubmit,
-            } = formRenderProps;
-            const classes = classNames(rootClassName, className);
-            return (
-              <Form className={classes} onSubmit={handleSubmit}>
-                <Field
-                  name="keywords"
-                  render={({ input, meta }) => {
-                    return (
-                      <input
-                        className={
-                          isMobile
-                            ? css.mobileInputRoot
-                            : css.desktopInputRoot
-                        }
-                        {...input}
-                        id="keyword-search"
-                        ref={this.searchInput}
-                        type="text"
-                        placeholder={intl.formatMessage({
-                          id: 'TopbarSearchForm.placeholderMobile',
-                        })}
-                        autoComplete="on"
-                      />
-                    );
-                  }}
-                />
-              </Form>
-            );
-          }}
-        />
-      );
-
-     }
+    
+    
 
 
   }
@@ -150,3 +104,4 @@ TopbarSearchFormComponent.propTypes = {
 const TopbarSearchForm = injectIntl(TopbarSearchFormComponent);
 
 export default TopbarSearchForm;
+

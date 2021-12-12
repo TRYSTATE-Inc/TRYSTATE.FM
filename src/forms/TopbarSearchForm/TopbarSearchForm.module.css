@@ -1,14 +1,20 @@
 @import '../../styles/propertySets.css';
+
 .mobileInputRoot {
     width: 100%;
     color: #ffffff;
+    border: 0 !important;
 }
 
+
+
 .desktopInputRoot {
-    height: var(--topbarHeightDesktop);
-    font-size: 18px;
-    color: #ffffff;
+ height: var(--topbarHeightDesktop);
+ font-size: 18px;
+ color: white;
 }
+
+
 
 .mobileIcon {
     margin-left: 24px;
@@ -83,6 +89,7 @@
         font-weight: var(--fontWeightMedium);
         transition: var(--transitionStyleButton);
         color: white !important;
+        
     }
     margin-top: 0;
     margin-bottom: 0;

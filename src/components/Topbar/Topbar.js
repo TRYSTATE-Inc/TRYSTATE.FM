@@ -80,6 +80,12 @@ class TopbarComponent extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
   }
+  // Open filters modal, set the initial parameters to current ones
+  openFilters() {
+    const { onOpenModal, urlQueryParams } = this.props;
+    onOpenModal();
+    this.setState({ isFiltersOpenOnMobile: true, initialQueryParams: urlQueryParams });
+  }
 
   handleMobileMenuOpen() {
     redirectToURLWithModalState(this.props, 'mobilemenu');
@@ -285,6 +291,9 @@ class TopbarComponent extends Component {
             </div>
             {notificationDot}
         </Button>
+
+        
+
         </div>
         <div className={css.desktop}>
           <TopbarDesktop

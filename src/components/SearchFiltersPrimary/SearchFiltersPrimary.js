@@ -43,7 +43,15 @@ const SearchFiltersPrimaryComponent = props => {
   return (
     <div className={classes}>
       <div className={css.searchOptions}>
-        {listingsAreLoaded ? (
+      
+        {sortByComponent}
+      </div>
+
+      <div className={css.filters}>
+      {children}
+        {toggleSecondaryFiltersOpenButton}
+      </div>
+      {listingsAreLoaded ? (
           <div className={css.searchResultSummary}>
             <span className={css.resultsFound}>
               <FormattedMessage
@@ -53,13 +61,6 @@ const SearchFiltersPrimaryComponent = props => {
             </span>
           </div>
         ) : null}
-        {sortByComponent}
-      </div>
-
-      <div className={css.filters}>
-        {children}
-        {toggleSecondaryFiltersOpenButton}
-      </div>
 
       {hasNoResult ? (
         <div className={css.noSearchResults}>
