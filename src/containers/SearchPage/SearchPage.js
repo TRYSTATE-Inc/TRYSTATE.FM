@@ -170,10 +170,12 @@ export class SearchPageComponent extends Component {
           className={topbarClasses}
           currentPage="SearchPage"
           currentSearchParams={urlQueryParams}
-          onOpenModal={this.onOpenMobileModal}
-          onCloseModal={this.onCloseMobileModal}
         />
-       
+         <BotbarContainer
+          className={topbarClasses}
+          currentPage="SearchPage"
+          currentSearchParams={urlQueryParams}
+        />
         <div className={css.container}>
           <MainPanel
             urlQueryParams={validQueryParams}
@@ -191,12 +193,17 @@ export class SearchPageComponent extends Component {
             showAsModalMaxWidth={MODAL_BREAKPOINT}
             history={history}
           />
-          
-          <div className={css.mapWrapper}>
-              {/* {shouldShowSearchMap ? (
-               
-              ) : null} */}
-               <SearchMap
+          {/* <ModalInMobile
+            className={css.mapPanel}
+            id="SearchPage.map"
+            isModalOpenOnMobile={this.state.isSearchMapOpenOnMobile}
+            onClose={() => this.setState({ isSearchMapOpenOnMobile: false })}
+            showAsModalMaxWidth={MODAL_BREAKPOINT}
+            onManageDisableScrolling={onManageDisableScrolling}
+          > */}
+            <div className={css.mapWrapper}>
+              {/* {shouldShowSearchMap ? ( */}
+                <SearchMap
                   reusableContainerClassName={css.map}
                   activeListingId={activeListingId}
                   bounds={bounds}
@@ -210,24 +217,10 @@ export class SearchPageComponent extends Component {
                   }}
                   messages={intl.messages}
                 />
+              {/* ) : null} */}
             </div>
-          {/* <ModalInMobile
-            className={css.mapPanel}
-            id="SearchPage.map"
-            isModalOpenOnMobile={this.state.isSearchMapOpenOnMobile}
-            onClose={() => this.setState({ isSearchMapOpenOnMobile: false })}
-            showAsModalMaxWidth={MODAL_BREAKPOINT}
-            onManageDisableScrolling={onManageDisableScrolling}
-          >
-            
-          </ModalInMobile> */}
+          {/* </ModalInMobile> */}
         </div>
-        
-        <BotbarContainer
-          className={topbarClasses}
-          currentPage="SearchPage"
-          currentSearchParams={urlQueryParams}
-        />
       </Page>
     );
   }

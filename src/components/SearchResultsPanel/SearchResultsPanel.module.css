@@ -1,37 +1,60 @@
 .root {
-  /* display: flex;
-  flex-direction: column; */
-  flex-grow: 1;
-  display: inline-block;
+  display: flex;
   flex-direction: column;
 }
 
-/* .listingCards {
-  padding: 0 24px 96px 24px;
-  width: 70%;
+.listingCards {
+  padding: 0 24px 0px 24px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 1) ,rgba(0, 0, 0, 1),rgba(0, 0, 0, 1),rgba(0, 0, 0, 1));
+  margin-bottom: 60px;
   @media (--viewportMedium) {
+    padding: 0 24px 96px 24px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0));
   }
 
   @media (--viewportLarge) {
-    padding: 0 36px 96px 36px;
+    padding: 0 36px 96px 45px;
+    background-image:linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0));
   }
-} */
+}
 
 .listingCard {
   margin-bottom: 36px;
-  margin-left: 45px;
   flex-basis: 100%;
-  width: 95%;
- 
-  @media (--viewportMedium){
-    width: 90%;
-  }
-  
-}
 
+  @media (--viewportLarge) {
+    /**
+      * resultPanelWidthRatio = 0.625 aka 62.5%
+      resultPanel: 62.5vw from 1024px = 640px
+      panelPaddings: - 2*36px = 72px
+      columnCount: 2
+      guttersBetweenColumns: 24px
+      (resultPanel - (panelPaddings + guttersBetweenColumns)) / columnCount = listingCardWidth
+      ergo => listingCardWidth: 272px
+    * flex-basis: calc((100%/columnCount) - (guttersBetweenColumns / columnCount))
+    */
+    flex-basis: 100%;
+    
+  }
+
+  @media (--viewportXLarge) {
+    /**
+     * resultPanelWidthRatio = 0.625 aka 62.5%
+      resultPanel: 62.5vw from 1920px = 1200px
+      panelPaddings: - 2*36px = 72px
+      columnCount: 3
+      guttersBetweenColumns: 2*24px = 48px
+      (resultPanel - (panelPaddings + guttersBetweenColumns)) / columnCount = listingCardWidth
+      ergo => listingCardWidth: 360px
+     * flex-basis: calc((100%/columnCount) - (guttersBetweenColumns / columnCount))
+     */
+
+    flex-basis: 100%;
+  }
+}
 /**
  * Remove margin-right from listingCards on the last column
  * This is a special case in the world of breakpoints. Nth-of-type effects every nth item.
