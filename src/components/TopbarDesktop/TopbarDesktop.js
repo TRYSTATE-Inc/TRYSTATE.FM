@@ -137,39 +137,38 @@ const TopbarDesktop = props => {
   
   return (
     <nav className={classes}>
-     <div className={css.tobparcontent}>
-     <a href={'/'}  className={css.logod} >
+      <div className={css.tobparcontent}>
+        <a href={'/'}  className={css.logod} >
         
-        <Logo
-          format="desktop"
-          className={css.logo}
-          alt={intl.formatMessage({ id: 'TopbarDesktop.logo' })}
-        />
+          <Logo
+            format="desktop"
+            className={css.logo}
+            alt={intl.formatMessage({ id: 'TopbarDesktop.logo' })}
+          />
       
-    </a>
-    <div className ={css.seccontain} >
-      <div className={css.searchcontainer}>
-        <IconSearch className={css.space2}/>
-        {search}
-      </div>
+        </a>
+        <div className ={css.seccontain} >
+          <div className={css.searchcontainer}>
+            <IconSearch className={css.space2}/>
+            {search}
+          </div>
       
-    </div>
+        </div>
     
-     <div className ={css.thirdcontain} >
-      <NamedLink className={css.createListingLink}  name="NewListingPage">
+        <div className ={css.thirdcontain} >
+          <NamedLink className={css.createListingLink}  name="NewListingPage">
      
-      <span className={css.createListing}>
+            <span className={css.createListing}>
        
-        <FormattedMessage id="TopbarDesktop.createListing" />
-      </span>
-     </NamedLink>
-     {inboxLink}
-     {profileMenu}
-     {/* {signupLink} */}
-     {loginLink}
-    
+              <FormattedMessage id="TopbarDesktop.createListing" />
+            </span>
+          </NamedLink>
+          {inboxLink}
+          {profileMenu}
+          {/* {signupLink} */}
+          {loginLink}
+        </div>
     </div>
-     </div>
     </nav>
   );
 };

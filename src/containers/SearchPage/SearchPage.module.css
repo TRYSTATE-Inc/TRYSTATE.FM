@@ -70,7 +70,7 @@
     @media (--viewportMedium) {
         display: flex;
         padding: 0 20px;
-        margin-bottom: 21px;
+        
     }
     @media (--viewportLarge) {
         padding: 0 20px;
@@ -99,10 +99,11 @@
     flex-direction: column;
     padding: 0;
     z-index: 1;
-    margin-top: 25rem;
+    margin-top: 24rem;
     
     @media(--viewportMedium) {
         width: 485.89px;
+        
         margin-top: 0;
         
     }
@@ -169,7 +170,7 @@
     width: 100vw;
     position: fixed;
     top: 60px;
-    height: calc(100vh - 60px);
+    height: calc(100vh - 120px);
     left: 0;
     
     @media (--viewportMedium) {

@@ -45,6 +45,7 @@
   padding: 16px 0 2px 0;
   background-color:  #454545;
   height: 50px;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, .4) ;
 }
 
 .price {
