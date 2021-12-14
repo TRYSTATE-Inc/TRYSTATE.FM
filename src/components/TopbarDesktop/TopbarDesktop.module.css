@@ -90,7 +90,7 @@
     object-fit: contain;
     display: flex;
     justify-content: center;
-    -webkit-justify-content:center;
+    /* -webkit-justify-content:center; */
 }
 .searchcontainer
 {
@@ -98,7 +98,7 @@
     display: flex;
     margin: 0 auto;
     justify-content: center;
-    -webkit-justify-content:center;
+    /* -webkit-justify-content:center; */
 }
 
 .search {
@@ -121,8 +121,8 @@
 
     width: 33.333333333333333%;
     display: flex;
-    justify-content:right; 
-    -webkit-justify-content:right;
+    justify-content:flex-end; 
+    /* -webkit-justify-content:right; */
 }
 .createListingLink {
     @apply --TopbarDesktop_linkHover;
@@ -260,7 +260,7 @@
     @apply --marketplaceH5FontStyles;
     @apply --TopbarDesktop_label;
     font-size: 17px ;
-    justify-content: right;
+    justify-content: flex-end;
     /* fill */
     
     /* shadows */
