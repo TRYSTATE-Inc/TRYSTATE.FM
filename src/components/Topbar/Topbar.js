@@ -27,6 +27,7 @@ import SearchIcon from './SearchIcon';
 import ShortLogoIcon from './ShortLogoIcon';
 import css from './Topbar.module.css';
 
+
 const MAX_MOBILE_SCREEN_WIDTH = 768;
 
 const redirectToURLWithModalState = (props, modalStateParam) => {
@@ -79,6 +80,12 @@ class TopbarComponent extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
   }
+  // Open filters modal, set the initial parameters to current ones
+  openFilters() {
+    const { onOpenModal, urlQueryParams } = this.props;
+    onOpenModal();
+    this.setState({ isFiltersOpenOnMobile: true, initialQueryParams: urlQueryParams });
+  }
 
   handleMobileMenuOpen() {
     redirectToURLWithModalState(this.props, 'mobilemenu');
@@ -116,26 +123,7 @@ class TopbarComponent extends Component {
  
   }
 
-//   HideLogo() {
-//  // document.getElementById("hideLogo").style.display = "none";
-//   var y = document.getElementById('hideLogo');
-//      if (y.style.display =='block') {
-//       y.style.display = 'none';
-//     } else {
-//      y.style.display = 'block';
-//    }
-//  }
-  
-//   DisplayShortlogo() {
-//    // document.getElementById("displayShortlogo").style.display = "inline";
 
-//     var z = document.getElementById('displayShortlogo');
-//     if (z.style.display =='none') {
-//       z.style.display = 'block';
-//     } else {
-//       z.style.display = 'none';
-//    }
-//   }
  
 
   handleSubmit(values) {
@@ -239,7 +227,7 @@ class TopbarComponent extends Component {
         />
         <div className={classNames(mobileRootClassName || css.container, mobileClassName)}>
         {/* <NamedLink className={css.logod}  name="LandingPage">
-         TRYSTATE.FM
+         saunatime
         </NamedLink> */}
        
        <div id = "displayShortlogo"   className={css.mystyle1} >
@@ -284,6 +272,9 @@ class TopbarComponent extends Component {
             </div>
             {notificationDot}
         </Button>
+
+        
+
         </div>
         <div className={css.desktop}>
           <TopbarDesktop

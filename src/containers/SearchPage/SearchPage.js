@@ -14,8 +14,13 @@ import { parse, stringify } from '../../util/urlHelpers';
 import { propTypes } from '../../util/types';
 import { getListingsById } from '../../ducks/marketplaceData.duck';
 import { manageDisableScrolling, isScrollingDisabled } from '../../ducks/UI.duck';
-import { SearchMap, ModalInMobile, Page } from '../../components';
+import { SearchMap, ModalInMobile, Page ,Form, PrimaryButton, FieldTextInput, NamedLink } from '../../components';
 import { TopbarContainer , BotbarContainer } from '../../containers';
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
+import AuthCode from 'react-auth-code-input';
+import { getCountries, getCountryCallingCode } from 'react-phone-number-input/input'
+import $ from "jquery"; //babel
 
 
 import { searchMapListings, setActiveListing } from './SearchPage.duck';
@@ -40,14 +45,120 @@ export class SearchPageComponent extends Component {
       //props.tab === 'map',
       isMobileModalOpen: false,
     };
-
+this.txes=0,
     this.searchMapListingsInProgress = false;
+    
+this.handleLogin=this.handleLogin.bind(this);
+this.handleregister=this.handleregister.bind(this);
+this.handlecode=this.handlecode.bind(this);
+this.oncangeitemcode=this.oncangeitemcode.bind(this);
+this.closeitem=this.closeitem.bind(this);
 
+
+
+
+this.oncangeitem=this.oncangeitem.bind(this);
     this.onMapMoveEnd = debounce(this.onMapMoveEnd.bind(this), SEARCH_WITH_MAP_DEBOUNCE);
     this.onOpenMobileModal = this.onOpenMobileModal.bind(this);
     this.onCloseMobileModal = this.onCloseMobileModal.bind(this);
   }
+   handleregister = ({ value }) => {
+    
+      event.preventDefault();
+    var number=localStorage.getItem("number");
 
+      var settings = {
+        "url": "http://test123444adasd-001-site1.htempurl.com/api/Account/Register",
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+          "Authorization": "Bearer -7SfDUdkdTQeH_cQ8VqhN98q-bxErpYoEo4MqIrVAcyrB0O6tLLlFAxyseEALw_Vi-P-4vw5enKiKO5WRQZ5SRbsUkESZbesU7czKFzq27SmrgWCrZp9PVIEWj-c5oyE-1LqMSXusjQd_ahPFvjyNQqwnvbC0ttI2FFOrVuEGv0T4oZ96MiQa88QZQ9oEuJ4Y4FZ2Bkd3Elx7V8C-OYeKfdBPYs-9nGEqLHBA3w6CHuLrPE7rqXYG2enIGmvAeXIJnHBzSuBbvwwIKrS3cVz5XWQk0xezCpaoEeR445TgKDSAX-VKedBZH9n1k_4To67bJ4PszK5PGvqYOOucFO45a-OoEPM1yEIPlyvu2VBg6kdynBNPYzbt78QpcdPxXIq",
+          "Content-Type": "application/json"
+        },
+        "data": JSON.stringify({
+          "Email":document.getElementById("Email").value+"@trystate.com",
+          "firstname":document.getElementById("FirstName").value,
+          "lastname":document.getElementById("lastname").value,
+          "mobilenumber":number,
+          "BirthDate":document.getElementById("Birthdate").value,
+          "Password":"P@ssw0rd",
+          "ConfirmPassword":"P@ssw0rd",      
+        }),
+      };
+      
+        $.ajax(settings).done(function (response) {
+          document.getElementById("Popup").style.display = "none";
+          document.getElementById("JoinButton").style.display = "none";
+          document.getElementById("Loginbutton").innerText = "Hi "+response.Profile.FirstName;
+
+        });
+      
+    };
+     handleLogin(event) {
+      event.preventDefault();
+      localStorage.setItem("number",this.txes);
+      var number = this.txes;
+    
+      var settings = {
+        "url": "http://test123444adasd-001-site1.htempurl.com/api/Values?number=" + number,
+        "method": "POST",
+        "timeout": 0,
+      };
+    
+      $.ajax(settings).done(function (response) {
+        if (response == true) {
+          document.getElementById("login").style.display = "none";
+          document.getElementById("verfiy").style.display = "";
+          this.txes=0;
+        }
+      });
+      
+    
+    }
+     handlecode(event) {
+    var number=localStorage.getItem("number");
+       var settings = {
+         "url": "http://test123444adasd-001-site1.htempurl.com/api/Values?code="+this.txes+"&mobileNumber="+number,
+         "method": "POST",
+         "timeout": 0,
+       };
+    
+       $.ajax(settings).done(function (response) {
+
+        if(!response.isOTPsuccessed)
+        {
+            alert("the OTP is incorrect !")
+        } 
+      else  if(response.ISuserregisted)
+        {
+         document.getElementById("Loginbutton").innerText = "Hi "+response.Profile.FirstName;
+         document.getElementById("Popup").style.display = "none";
+         document.getElementById("JoinButton").style.display = "none";
+
+        //  let x = document.getElementById('Popup');
+        
+          // window.location.href = '/'
+        }
+        else{
+         document.getElementById("verfiy").style.display = "none";
+         document.getElementById("register").style.display = "";
+        }
+       });
+    }
+    txes=0;
+    oncangeitemcode(value) {
+       
+      this.txes=value;
+    if(value.length==6)
+    {
+      this.handlecode();
+    }
+    }
+     oncangeitem(value) {
+       
+      this.txes=value;
+  
+    }
   // Callback to determine if new search is needed
   // when map is moved by user or viewport has changed
   onMapMoveEnd(viewportBoundsChanged, data) {
@@ -100,6 +211,59 @@ export class SearchPageComponent extends Component {
   onCloseMobileModal() {
     this.setState({ isMobileModalOpen: false });
   }
+  CloseBtn(event) {
+    event.preventDefault();   
+     // document.getElementById("displaySearch").style.display = "inline";
+    let x = document.getElementById('Popup');
+    
+    if (x.className === (css.apearPopup) ) {
+      x.className = (css.modalBackground);
+      
+    } 
+   
+  
+   }
+   showPopupLog() {
+    // document.getElementById("displaySearch").style.display = "inline";
+    let x = document.getElementById('Popup');
+    document.getElementById("login").style.display = "";
+
+    document.getElementById("verfiy").style.display = "none";
+    document.getElementById("register").style.display = "none";
+    if (x.className === (css.modalBackground) ) {
+      x.className = (css.apearPopup);
+      
+    } 
+   }
+   CloseBtn2(event) {
+    event.preventDefault();   
+     // document.getElementById("displaySearch").style.display = "inline";
+     document.getElementById("login").style.display = "";
+     document.getElementById("verfiy").style.display = "none";
+     
+   
+  
+   }
+   closeitem(event)
+   {
+    event.preventDefault();     
+
+    document.getElementById("Popup").style.display = "none";
+
+   }
+   showPopupJoin() {
+    // document.getElementById("displaySearch").style.display = "inline";
+    document.getElementById("login").style.display = "";
+
+    document.getElementById("verfiy").style.display = "none";
+    document.getElementById("register").style.display = "none";
+    let x = document.getElementById('Popup');
+
+    if (x.className === (css.modalBackground) ) {
+      x.className = (css.apearPopup);
+      
+    } 
+   }
 
   render() {
     const {
@@ -166,17 +330,33 @@ export class SearchPageComponent extends Component {
         title={title}
         schema={schema}
       >
+          <div className={css.containerLogin}  >
+          <div className={css.joinBtn}>
+          <button  id="JoinButton"
+           onClick={this.showPopupJoin}
+          >
+            Join
+          </button>
+         </div>
+         <div className={css.LoginBtn}>
+          <button  id="Loginbutton"
+           onClick={this.showPopupLog}
+          >
+            Log in
+          </button>
+         </div>
+         </div>
         <TopbarContainer
           className={topbarClasses}
           currentPage="SearchPage"
           currentSearchParams={urlQueryParams}
         />
-        <BotbarContainer
+         
+         <BotbarContainer
           className={topbarClasses}
           currentPage="SearchPage"
           currentSearchParams={urlQueryParams}
         />
-       
         <div className={css.container}>
           <MainPanel
             urlQueryParams={validQueryParams}
@@ -194,12 +374,17 @@ export class SearchPageComponent extends Component {
             showAsModalMaxWidth={MODAL_BREAKPOINT}
             history={history}
           />
-          
-          <div className={css.mapWrapper}>
-              {/* {shouldShowSearchMap ? (
-               
-              ) : null} */}
-               <SearchMap
+          {/* <ModalInMobile
+            className={css.mapPanel}
+            id="SearchPage.map"
+            isModalOpenOnMobile={this.state.isSearchMapOpenOnMobile}
+            onClose={() => this.setState({ isSearchMapOpenOnMobile: false })}
+            showAsModalMaxWidth={MODAL_BREAKPOINT}
+            onManageDisableScrolling={onManageDisableScrolling}
+          > */}
+            <div className={css.mapWrapper}>
+              {/* {shouldShowSearchMap ? ( */}
+                <SearchMap
                   reusableContainerClassName={css.map}
                   activeListingId={activeListingId}
                   bounds={bounds}
@@ -213,18 +398,147 @@ export class SearchPageComponent extends Component {
                   }}
                   messages={intl.messages}
                 />
+              {/* ) : null} */}
             </div>
-          {/* <ModalInMobile
-            className={css.mapPanel}
-            id="SearchPage.map"
-            isModalOpenOnMobile={this.state.isSearchMapOpenOnMobile}
-            onClose={() => this.setState({ isSearchMapOpenOnMobile: false })}
-            showAsModalMaxWidth={MODAL_BREAKPOINT}
-            onManageDisableScrolling={onManageDisableScrolling}
-          >
+          {/* </ModalInMobile> */}
+                   {/**************************************POPUP************************************ */}
+         <div id="Popup" style={{zIndex:100}} className={css.modalBackground}>
+          <div className={css.modalContainer}>
+         
+            <div >
+          
+        <Form id="login" onSubmit={this.handleLogin}>          
+         <div className={css.headerPopup}>
+             <div className={css.titleCloseBtn}>
+               <button onClick={this.CloseBtn} >
+               X
+                </button>
+              </div>
+              <span className={css.joinLogin}>Join or Log in</span>
+           <div/>
+           </div>
+         
             
-          </ModalInMobile> */}
-        </div>
+            <div>
+              <div style={{ color: '#000000', fontWeight: 'bold', marginBottom: "7%", fontSize:20 }}> Welcome to the Team.</div>
+              <PhoneInput
+                international
+                placeholder="Enter your phone number"
+                className={css.number}
+                country={'us'}
+
+                id="item"
+                withCountryCallingCode
+                onChange={this.oncangeitem}
+                disableDropdown/>
+              <div className={css.mobileMarginOflogin}>
+               <PrimaryButton  className={css.onclick} type="submit" >
+                Continue
+                </PrimaryButton>
+             </div>
+            </div>
+          </Form>
+         <Form id="register"  onSubmit={this.handleregister} style={{ display: 'none' }} >
+        
+              <div className={css.headerPopup}>
+             <div className={css.titleCloseBtn}>
+             <button onClick={this.CloseBtn} >
+                X
+                </button>
+              </div>
+              <span className={css.joinLogin}>Finish signing up</span>
+           <div/>
+           </div>
+              
+
+           <input
+                className={css.firstname}
+                id= "FirstName"
+                name="FirstName"
+                placeholder="First name"
+              />
+              <input
+                className={css.LastName}
+                id="lastname"
+                name="LastName"
+                placeholder="Last name"
+              />
+              <small className={css.terms}>Make sure it matches the name on your governement ID.</small>
+
+
+              <div className={css.usernameClass}>
+              <input
+                className={css.UserName}
+                id="Email"
+                name="UserName"
+                placeholder="Username"
+                />
+                <label className={css.trystateSpan}>@trystate.com</label>
+              </div>
+                 <input
+                className={css.birthDate}
+                id="Birthdate"
+                type="date"
+                name="date"
+                placeholder="Birthdate"
+                maxlength="10"
+                pattern="^(1[0-2]|0?[1-9])[./-](3[01]|[12][0-9]|0?[1-9])[./-](?:[0-9]{2})?[0-9]{2}$"
+              />
+               
+            
+              <p className={css.ageTerms}>To sign up, you need to be at least 16. Your birthday won't be shared publicly.</p>
+            
+            <div className={css.bottomWrapper}>
+              <div className={css.justifingPargraph}>
+              <p className={css.bottomWrapperText}>
+                By selecting <span className={css.agree}>Agree and continue</span> below, I agree to the  <span className={css.mobileJustifingPargraph}>TRYSTATE.FM  <a className={css.termsSrv}>Terms of Service</a>.</span></p>
+                </div>
+              <PrimaryButton className={css.onclick}  type="submit"  >
+              Agree and continue
+              </PrimaryButton>
+            </div>
+          </Form>
+           {/* *********************************** ENTER THE CODE WE SENT YOU*************************************** */}
+           
+         <Form id='verfiy'  style={{ display: 'none' }} onSubmit = {this.handleLogin}>
+           <div className={css.headerPopup}>
+             <div className={css.titleCloseBtn}>
+
+             <button onClick={this.CloseBtn2} >
+               
+               {
+                 "<"
+               }
+                </button>
+              </div>
+              <span className={css.joinLogin}>Confirm your number</span>
+           <div/>
+           </div>
+           
+           <h2 className={css.enterCode}>Please enter the code we sent you.</h2>
+            <AuthCode
+              containerClassName={css.containerAuth}
+              inputClassName={css.input}
+              className={css.enterCode}
+              onChange={this.oncangeitemcode}
+              // placeholder="Enter 6 digit here"
+               />
+              <div className={css.resendCode}>
+                <div>
+              <button type="submit">Resend code</button>
+              </div>
+              </div>
+            {/* <PrimaryButton className={css.onclick} type="submit"  >
+              Continue
+            </PrimaryButton> */}
+          </Form>
+          
+            </div>
+        
+          </div>
+     </div>
+          
+        </div> 
       </Page>
     );
   }

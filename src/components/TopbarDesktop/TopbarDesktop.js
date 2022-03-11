@@ -13,10 +13,12 @@ import {
   MenuContent,
   MenuItem,
   NamedLink,
+  IconSearch,
 } from '../../components';
 import { TopbarSearchForm } from '../../forms';
 
 import css from './TopbarDesktop.module.css';
+
 
 
 const TopbarDesktop = props => {
@@ -132,41 +134,41 @@ const TopbarDesktop = props => {
       </span>
     </NamedLink>
   );
-
+  
   return (
     <nav className={classes}>
-      {/* <NamedLink className={css.logod}  name="LandingPage">
-         TRYSTATE.FM
-      </NamedLink> */}
-      <NamedLink className={css.logod}  name="LandingPage">
-         <Logo
-          format="desktop"
-          className={css.logo}
-          alt={intl.formatMessage({ id: 'TopbarDesktop.logo' })}
-        />
-        </NamedLink>
-      <div className ={css.seccontain} >
-       
-       
-         <div className={css.space2}><i className="fal fa-search"></i></div>
-         {search}
+      <div className={css.tobparcontent}>
+        <a href={'/'}  className={css.logod} >
         
-       
-      </div>
+          <Logo
+            format="desktop"
+            className={css.logo}
+            alt={intl.formatMessage({ id: 'TopbarDesktop.logo' })}
+          />
       
-       <div className ={css.thirdcontain} >
-        <NamedLink className={css.createListingLink}  name="NewListingPage">
+        </a>
+        <div className ={css.seccontain} >
+          <div className={css.searchcontainer}>
+            <IconSearch className={css.space2}/>
+            {search}
+          </div>
+      
+        </div>
+    
+        <div className ={css.thirdcontain} >
+          <NamedLink className={css.createListingLink}  name="NewListingPage">
+     
+            {/* <span className={css.createListing}>
        
-        <span className={css.createListing}>
-         
-          <FormattedMessage id="TopbarDesktop.createListing" />
-        </span>
-       </NamedLink>
-       {inboxLink}
-       {profileMenu}
-       {signupLink}
-       {loginLink}
-      </div>
+              <FormattedMessage id="TopbarDesktop.createListing" />
+            </span> */}
+          </NamedLink>
+          {inboxLink}
+          {profileMenu}
+          {/* {signupLink} */}
+          {/* {loginLink} */}
+        </div>
+    </div>
     </nav>
   );
 };

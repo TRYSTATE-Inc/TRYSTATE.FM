@@ -19,7 +19,9 @@
 
 .content {
   @apply --marketplaceModalBaseStyles;
-  padding-top: 29px;
+  display: flex;
+  
+  
 }
 
 /* ================ Tabs & Form ================ */

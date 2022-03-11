@@ -304,7 +304,8 @@ export class AuthenticationPageComponent extends Component {
     // Tabs for SignupForm and LoginForm
     const authenticationForms = (
       <div className={css.content}>
-        <LinkTabNavHorizontal className={css.tabs} tabs={tabs} />
+        
+        {/* <LinkTabNavHorizontal className={css.tabs} tabs={tabs} /> */}
         {loginOrSignupError}
 
         {isLogin ? (
@@ -389,8 +390,9 @@ export class AuthenticationPageComponent extends Component {
     const topbarClasses = classNames({
       [css.hideOnMobile]: showEmailVerification,
     });
-
+   if ( window.innerWidth > 768){
     return (
+      
       <Page
         title={schemaTitle}
         scrollingDisabled={scrollingDisabled}
@@ -430,7 +432,51 @@ export class AuthenticationPageComponent extends Component {
         </LayoutSingleColumn>
       </Page>
     );
-  }
+   }
+   else{
+    return (
+      
+      <Page
+        title={schemaTitle}
+        scrollingDisabled={scrollingDisabled}
+        schema={{
+          '@context': 'http://schema.org',
+          '@type': 'WebPage',
+          name: schemaTitle,
+        }}
+      >
+        <LayoutSingleColumn>
+          <LayoutWrapperTopbar>
+           
+            <BotbarContainer className={topbarClasses} />
+          </LayoutWrapperTopbar>
+          <LayoutWrapperMain className={css.layoutWrapperMain}>
+            <div className={css.root}>
+              {showEmailVerification ? emailVerificationContent : formContent}
+            </div>
+            <Modal
+              id="AuthenticationPage.tos"
+              isOpen={this.state.tosModalOpen}
+              onClose={() => this.setState({ tosModalOpen: false })}
+              usePortal
+              onManageDisableScrolling={onManageDisableScrolling}
+            >
+              <div className={css.termsWrapper}>
+                <h2 className={css.termsHeading}>
+                  <FormattedMessage id="AuthenticationPage.termsHeading" />
+                </h2>
+                <TermsOfService />
+              </div>
+            </Modal>
+          </LayoutWrapperMain>
+          <LayoutWrapperFooter>
+            <Footer />
+          </LayoutWrapperFooter>
+        </LayoutSingleColumn>
+      </Page>
+    );
+   }
+  } 
 }
 
 AuthenticationPageComponent.defaultProps = {

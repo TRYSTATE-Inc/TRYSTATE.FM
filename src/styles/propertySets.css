@@ -18,6 +18,8 @@
  */
     /* ================ CSS Custom Property Sets ================ */
     /* Full screen Background image located in root-folder/src/assets */
+
+    
     --backgroundImage: {
         /* Gradient direction and overlaying the black color on top of the image for better readability */
         background: linear-gradient(-45deg, rgba(0, 0, 0, 0.00001), rgba(0, 0, 0, 0.0001)), url('../../assets/background-1440.jpg');
@@ -341,17 +343,17 @@
         /* Dimensions */
         display: block;
         width: 100%;
-        min-height: 59px;
-        margin: 0;
+        min-height: 10px;
+        margin: 0px;
         /* Padding is only for <a> elements where button styles are applied,
 		buttons elements should have zero padding */
-        padding: 17px 0 17px 0;
+        padding: 11px 0 11px 0;
         @media (--viewportMedium) {
-            padding: 20px 0 20px 0;
+            padding:11px 0 11px 0;
         }
         /* Borders */
         border: none;
-        border-radius: var(--borderRadius);
+        border-radius: 8px;
         /* Colors */
         background-color: var(--marketplaceColor);
         color: var(--matterColorLight);
@@ -361,31 +363,17 @@
         /* Effects */
         transition: all var(--transitionStyleButton);
         cursor: pointer;
-        &:hover,
-        &:focus {
-            outline: none;
-            background-color: var(--marketplaceColorDark);
-            text-decoration: none;
-            box-shadow: var(--boxShadowButton);
-        }
-        &:disabled {
-            background-color: var(--matterColorNegative);
-            color: var(--matterColorLight);
-            cursor: not-allowed;
-            box-shadow: none;
-        }
+        
         @media (--viewportMedium) {
-            min-height: 65px;
+            min-height: 10px;
         }
     }
     --marketplaceButtonStylesPrimary {
         @apply --marketplaceButtonStyles;
-        background-color: var(--successColor);
+        
         color: var(--matterColorLight);
-        &:hover,
-        &:focus {
-            background-color: var(--successColorDark);
-        }
+      
+        
         &:disabled {
             background-color: var(--matterColorNegative);
             color: var(--matterColorLight);
@@ -496,16 +484,16 @@
         flex-direction: column;
         padding: var(--modalPadding);
         background-color: var(--matterColorLight);
-        border-radius: var(--borderRadius);
-        border-bottom: none;
+        border-radius: 8px;
+        
         @media (--viewportMedium) {
-            flex-basis: 480px;
+            flex-basis: 600px;
             flex-grow: 0;
             /* min-height: 568px; */
-            padding: var(--modalPaddingMedium);
+           
             margin-top: 12.5vh;
             margin-bottom: 12.5vh;
-            border-bottom: 8px solid var(--marketplaceColor);
+            
         }
     }
     --marketplaceModalInMobileBaseStyles {
@@ -661,3 +649,5 @@
         }
     }
 }
+
+

@@ -7,20 +7,134 @@
 
   @media (--viewportMedium) {
     justify-content: space-between;
+    display: none !important;
   }
 }
 
 .password {
   @apply --marketplaceModalPasswordMargins;
 }
+.number{
+  width: 100% !important;
+  margin: 0px;
+  margin-bottom:2rem ;
+  padding: 0px !important;
 
-.bottomWrapper {
-  @apply --marketplaceModalBottomWrapper;
 }
+.footer {
+font-size: 0.8ch;
+padding-top: -7%;
+  color: gray;
+  text-align: left;
+}
+.inputsdasdas
+{
+  display: flex !important;
+  position: relative;
+}
+.header
+{
+  margin: 100px !important;
+  background: yellowgreen !important;
+}
+.PhoneInput
+{
+  margin: 10px !important;
+}
+.number .PhoneInputInput
+{
+  border:0px !important
+}
+.firstname
+{
+  /* border-bottom-color:white !important;
+  
+  padding-left: 10px;
+  border-top: 1px;;
+  border-left: 1px;;
+   border-style: ridge !important;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px; */
+
+  border: 1px solid #c4c4c4!important;
+  padding: 0.08em  10px;
+  border-radius: 8px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-bottom-color:white !important ;
+  padding-bottom: 0.07em ;
+
+  
+}
+.LastName
+{
+  
+  /* border-style: ridge !important;
+  padding-left: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-color:white !important ;
+  border-top: 0px;;
+  border-left: 1px;; */
+ 
+  border: .8px solid #c4c4c4!important;
+  padding: 0.08em 10px;
+  border-radius: 8px;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+  
+}
+.userContainer{
+  display: flex;
+  margin-top: 3.14rem;
+  width: 100%;
+}
+
+
+.UserName
+{
+  border: 1px solid #c4c4c4!important;
+ padding: 0.08em  10px;
+ border-radius: 8px;
+ width: 60%;
+ border-right:none !important;
+ border-radius: 8px 0px 0px 8px ;
+
+}
+
+/* .bottomWrapper {
+  @apply --marketplaceModalBottomWrapper;
+} */
 
 /* Adjust the bottomWrapper's margin to match modals without the helper text */
 .bottomWrapperText {
-  @apply --marketplaceModalBottomWrapperText;
+  color: #000000;
+  font-size: 11.5px;
+  font-weight: 450;
+  margin-bottom: .5rem;
+  line-height: 120%;
+  @media (--viewportMedium) {
+    
+    font-size: 12px;
+    font-weight: 450;
+    margin-bottom: 2%;
+    line-height: 130%;
+   }
+
+}
+.mobileJustifingPargraph
+{
+
+  justify-content: center;
+  display: flex;
+  @media (--viewportMedium) {
+    display:inline;
+    
+   }
+}
+.justifingPargraph{
+  justify-content: center;
+  display: flex;
 }
 
 .recoveryLink {
@@ -30,3 +144,308 @@
 .recoveryLinkInfo {
   @apply --marketplaceModalHelperText;
 }
+.joinLogin{
+  justify-content: center;
+  display: flex;
+  font-size:15.5px;
+  margin-bottom: 5.5rem;
+  font-weight: 600;
+  color: black;
+  margin-top: 0px;
+  @media (--viewportMedium) {
+    
+    margin-bottom: 10%;
+   }
+  
+}
+
+.birthDate{
+  border: 1px solid #c4c4c4!important;
+  padding: 0.08em 10px;
+  border-radius: 8px;
+  margin-top: 2rem;
+  @media (--viewportMedium) {
+    
+    margin-top: 5%;
+   }
+}
+.userContainer{
+  display: flex;
+  margin-top: 3.14rem;
+  width: 100%;
+}
+.trystateSpan{
+  width: 40%;
+  font-size: 16px;
+   padding:  8px;
+  border:1px solid #c4c4c4!important ;
+  border-left:none !important;
+  
+  border-radius: 0px 8px 8px 0px ;
+}
+
+.terms{
+  color: #a6a6aa;
+  font-size: 10.5px;
+  font-weight: 450;
+  line-height: 120%;
+  @media (--viewportMedium) {
+    
+   font-size: 12px;
+    font-weight: 450;
+    line-height: 20%;
+  }
+}
+
+
+.termsSrv{
+  color:#329bfc ;
+  text-decoration: underline;
+  margin-left: 2.5px;
+}
+.agree{
+  font-weight: 700;
+  margin-left: 2.5px;
+  margin-right: 2.5px;
+}
+.enterCode{
+  margin-bottom:12%;
+  font-size: 17.5px;
+  font-weight: 700;
+  @media (--viewportMedium) {
+    font-size: 21px;
+    margin-bottom:8%;
+  }
+}
+
+.container{
+  margin-bottom:12% ;
+  display: flex;
+  justify-content:space-around;
+  @media (--viewportMedium) {
+    margin-bottom:8%;
+  }
+  
+}
+.input{
+    width: 1.8ch;
+    font-size:33px;
+    text-align: center;
+    padding: 6px;
+    border: solid 1px #c7c7c7;
+    border-radius: 8px;
+    text-transform: uppercase;
+    @media (--viewportMedium) {
+      width: 2ch;
+      font-size: 40px;
+       padding: 6px;
+      }
+   
+}
+.resendCode {
+  
+    text-decoration: underline;
+}
+.resendCode button{
+  
+  text-decoration: underline;
+  font-size: 13px;
+  font-weight: 650;
+  @media (--viewportMedium) {
+    
+    background-color: transparent;
+    border: none; 
+    cursor: pointer;
+  }
+}
+
+.mobileMarginOflogin{
+  height: calc(60vh - var(--topbarHeightDesktop));
+  display: flex;
+  align-items: flex-end;
+  
+  
+   @media (--viewportMedium) {
+    margin-top: 0vh;
+   }
+   
+}
+.mobileMarginOflogin button{
+  
+}
+.bottomWrapper{
+   
+  margin-top: 21vh;
+ 
+   @media (--viewportMedium) {
+    margin-top:4vh;
+   }
+}
+.ageTerms{
+  color: #a6a6aa;
+  font-size: 10.5px;
+  font-weight: 450;
+  line-height: 120%;
+  @media (--viewportMedium) {
+    
+    font-size: 12px;
+    font-weight: 450;
+    line-height: 20%;
+  }
+}
+.welcomeTeam{
+  color: #000000;
+   font-weight: bold;
+   margin-bottom: 2.5rem;
+    font-size:20px ;
+}
+
+
+
+@media (min-width: 0px) and (max-width: 346px) { 
+
+  .input{
+    width: 34px;
+    height: 42px;
+    font-size:22px;
+   
+  }
+  .welcomeTeam{
+    
+      font-size:16px ;
+  }
+  .enterCode{
+    font-size: 15px;
+   
+  }
+  .terms{
+
+    font-size: 9px;
+  }
+  .ageTerms{
+    font-size: 9px;
+  }
+  .joinLogin{
+    margin-bottom: 4rem;
+    
+  }
+  .trystateSpan{
+   
+    font-size: 12px;
+  }
+  .userContainer{
+    margin-top:2.7rem ;
+  }
+  .birthDate{
+    margin-top:1.8rem ;
+  }
+  .bottomWrapperText{
+    font-size: 9.8px;
+    
+  }
+   .bottomWrapper{
+    margin-top: 4.5vh;
+   }
+   .mobileMarginOflogin{
+    height: calc(59vh - var(--topbarHeightDesktop));
+  }
+}
+
+@media (min-width: 346.1px) and (max-width: 375px) { 
+  .input{
+    width: 35px;
+    height: 44px;
+    font-size:25px;
+   
+  }
+  .bottomWrapper{
+    margin-top: 12.2vh;
+   }
+   .userContainer{
+    margin-top:2.7rem ;
+  }
+  .birthDate{
+    margin-top:1.8rem ;
+  }
+  .joinLogin{
+    margin-bottom: 4rem;
+    
+  }
+  .trystateSpan{
+   
+    font-size: 14px;
+  }
+  .mobileMarginOflogin{
+    height: calc(64.5vh - var(--topbarHeightDesktop));
+  }
+    .welcomeTeam{
+    
+      font-size:18px ;
+       }
+  
+}
+@media (min-height: 730px) and (max-height:780px) { 
+  .bottomWrapper{
+    margin-top: 20vh;
+   
+  } 
+  .mobileMarginOflogin{
+    height: calc(65vh - var(--topbarHeightDesktop));
+  }
+}
+@media (min-height: 781px) and (max-height:800px) { 
+  .bottomWrapper{
+    margin-top: 24vh;
+   
+  } 
+  .mobileMarginOflogin{
+    height: calc(67vh - var(--topbarHeightDesktop));
+  }
+}
+@media (min-height: 800px) and (max-height:830px) { 
+  .bottomWrapper{
+    margin-top: 27vh;
+   
+  } 
+  .mobileMarginOflogin{
+    height: calc(69vh - var(--topbarHeightDesktop));
+  }    
+}
+@media (min-height: 831px) and (max-height:860px) { 
+  .bottomWrapper{
+    margin-top: 30vh;
+   }
+   .mobileMarginOflogin{
+    height: calc(68vh - var(--topbarHeightDesktop));
+  }
+} 
+ 
+@media (min-height:861px) and (max-height:890px) { 
+    .bottomWrapper{
+      margin-top: 33vh;
+     }
+     .mobileMarginOflogin{
+      height: calc(70vh - var(--topbarHeightDesktop));
+    }
+}
+@media (min-height:891px) and (max-height:915px) { 
+  .bottomWrapper{
+    margin-top: 35vh;
+   }
+   .mobileMarginOflogin{
+    height: calc(72vh - var(--topbarHeightDesktop));
+  }
+}
+@media (min-height:916px) and (max-height:930px) { 
+  .bottomWrapper{
+    margin-top: 35vh;
+   }
+   .mobileMarginOflogin{
+    height: calc(72vh - var(--topbarHeightDesktop));
+  }
+ }   
+ 
+   
+  
+ 
+

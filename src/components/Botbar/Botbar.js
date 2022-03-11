@@ -212,19 +212,19 @@ class BotbarComponent extends Component {
         />
         <div className={classNames(mobileRootClassName || css.container, mobileClassName)}>
           {/* <NamedLink className={css.logod}  name="LandingPage">
-           TRYSTATE.FM
+           saunatime
            </NamedLink> */}
        
-        <div className={css.logIn}>
+        <div className={css.logIn} >
           <Button className={css.logIn1}
             rootClassName={css.searchMenu}
             onClick={this.handleMobileSearchOpen}
             title={intl.formatMessage({ id: 'Topbar.searchIcon' })}
           >
             <SearchIcon className={css.searchMenuIcon} />
+            
           </Button>
-          <span className={css.logIn0} onClick={this.handleMobileSearchOpen}>Browse</span>
-        
+        <span className={css.logIn0} onClick={this.handleMobileSearchOpen}>Browse</span>
         </div>
         <div >
           {/* <Button className={css.partner}
@@ -237,7 +237,7 @@ class BotbarComponent extends Component {
           {/* <div className={css.iconplus}> <i className="fal fa-plus-circle "></i></div>
              */}
              <div className={css.partnericon}>
-              <NamedLink name="NewListingPage">
+              <NamedLink name="LoginPage">
                 <BecomeApartnerIcon />
               </NamedLink>
             
@@ -254,7 +254,7 @@ class BotbarComponent extends Component {
             <MenuIcon className={css.menuIcon} />
             {notificationDot}
           </Button>
-         <span className={css.logIn0}>Log in</span>
+         <span className={css.logIn0} onClick={this.handleMobileMenuOpen}>Log in</span>
          
         </div>
         </div>
@@ -329,18 +329,19 @@ class BotbarComponent extends Component {
         />
         <div className={classNames(mobileRootClassName || css.container, mobileClassName)}>
           {/* <NamedLink className={css.logod}  name="LandingPage">
-           TRYSTATE.FM
+           saunatime
            </NamedLink> */}
        
-        <div className={css.logIn}>
+        <div className={css.logIn} >
           <Button className={css.logIn1}
             rootClassName={css.searchMenu}
             onClick={this.handleMobileSearchOpen}
             title={intl.formatMessage({ id: 'Topbar.searchIcon' })}
           >
             <SearchIcon className={css.searchMenuIcon} />
+            
           </Button>
-          <span className={css.logIn0} onClick={this.handleMobileSearchOpen}>Browse</span>
+        <span className={css.logIn0} onClick={this.handleMobileSearchOpen}>Browse</span>
         </div>
         <div >
           {/* <Button className={css.partner}
@@ -371,7 +372,7 @@ class BotbarComponent extends Component {
             {notificationDot}
           </Button>
         
-         <span className={css.logIn0}>Profile</span>
+         <span className={css.logIn0} onClick={this.handleMobileMenuOpen}>Profile</span>
         </div>
         </div>
         <div className={css.desktop}>

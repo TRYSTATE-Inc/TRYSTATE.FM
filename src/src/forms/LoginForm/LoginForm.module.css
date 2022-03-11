@@ -1,0 +1,185 @@
+@import '../../styles/propertySets.css';
+
+.root {
+  @apply --marketplaceModalFormRootStyles;
+
+  justify-content: flex-start;
+
+  @media (--viewportMedium) {
+    justify-content: space-between;
+  }
+}
+
+.password {
+  @apply --marketplaceModalPasswordMargins;
+}
+.number{
+  width: 100% !important;
+  margin: 0px;
+  margin-bottom: 5%;
+  padding: 0px !important;
+
+}
+.footer {
+font-size: 0.8ch;
+padding-top: -7%;
+  color: gray;
+  text-align: left;
+}
+.inputsdasdas
+{
+  display: flex !important;
+  position: relative;
+}
+.header
+{
+  margin: 100px !important;
+  background: yellowgreen !important;
+}
+.PhoneInput
+{
+  margin: 10px !important;
+}
+.number .PhoneInputInput
+{
+  border:0px !important
+}
+.firstname
+{
+  /* border-bottom-color:white !important;
+  
+  padding-left: 10px;
+  border-top: 1px;;
+  border-left: 1px;;
+   border-style: ridge !important;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px; */
+
+  border: 1px solid #c4c4c4!important;
+  padding: 0.08em  10px;
+  border-radius: 8px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-bottom-color:white !important ;
+  padding-bottom: 0.07em ;
+}
+.LastName
+{
+  
+  /* border-style: ridge !important;
+  padding-left: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-color:white !important ;
+  border-top: 0px;;
+  border-left: 1px;; */
+ 
+  border: .8px solid #c4c4c4!important;
+  padding: 0.08em 10px;
+  border-radius: 8px;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+  
+}
+
+.UserName
+{
+  /* border-bottom-color:white !important;
+  
+  padding-left: 10px;
+  border-top: 1px;;
+  border-left: 1px;;
+
+
+  border-style: ridge !important;
+ border-radius: 10px; */
+ border: 1px solid #c4c4c4!important;
+ padding: 0.08em  10px;
+ border-radius: 8px;
+ margin-top: 5%;
+ 
+
+}
+
+/* .bottomWrapper {
+  @apply --marketplaceModalBottomWrapper;
+} */
+
+/* Adjust the bottomWrapper's margin to match modals without the helper text */
+.bottomWrapperText {
+  color: #000000;
+  font-size: 12px;
+  font-weight: 450;
+  margin-bottom: 0;
+
+}
+.justifingPargraph
+{
+  justify-content: center;
+  display: flex;
+}
+
+.recoveryLink {
+  @apply --marketplaceModalHelperLink;
+}
+
+.recoveryLinkInfo {
+  @apply --marketplaceModalHelperText;
+}
+.joinLogin{
+  justify-content: center;
+  display: flex;
+  font-size:15.5px;
+  margin-bottom: 10%;
+  font-weight: 600;
+  color: black;
+  margin-top: 0px;
+  
+}
+.POPup{
+  width: 28vw !important;
+}
+.birthDate{
+  border: 1px solid #c4c4c4!important;
+  padding: 0.08em 10px;
+  border-radius: 8px;
+  margin-top: 5%;
+}
+.terms{
+  color: #a6a6aa;
+  font-size: 12px;
+  font-weight: 450;
+}
+.termsSrv{
+  color:#329bfc ;
+  text-decoration: underline;
+  margin-left: 2.5px;
+}
+.agree{
+  font-weight: 700;
+  margin-left: 2.5px;
+  margin-right: 2.5px;
+}
+.enterCode{
+  margin-bottom:7%;
+  font-size: 20.5px;
+  font-weight: 700;
+}
+
+.container{
+  display: flex;
+  justify-content:space-around ;
+  margin-bottom:7% ;
+  
+}
+.input{
+    width: 2ch;
+    font-size: 40px;
+    text-align: center;
+    padding: 8px;
+    margin-right: 12px;
+    border: solid 1px #c7c7c7;
+    border-radius: 8px;
+    margin: 8px;
+   
+}
