@@ -58,8 +58,8 @@ var nmber=localStorage.getItem("item");
 
    $.ajax(settings).done(function (response) {
      if (response == true) {
-       document.getElementById("login").style.display = "none";
-       document.getElementById("verfiy").style.display = "";
+      document.getElementById("login").classList.add(css.register)
+      document.getElementById("verfiy").classList.remove(css.register)
 
      }
   });
@@ -67,8 +67,7 @@ var nmber=localStorage.getItem("item");
 }
 function handlecode(event) {
 
-  document.getElementById("verfiy").style.display = "none";
-  document.getElementById("register").style.display = "";
+  
   var settings = {
      "url": "http://test123444adasd-001-site1.htempurl.com/api/Values?code=2123456&mobileNumber=01014637219",
     "method": "POST",
@@ -77,8 +76,8 @@ function handlecode(event) {
 
    $.ajax(settings).done(function (response) {
     console.log(response);
-     document.getElementById("verfiy").style.display = "none";
-     document.getElementById("register").style.display = "";
+    document.getElementById("verfiy").classList.add(css.register)
+    document.getElementById("register").classList.remove(css.register)
    });
 }
 var number=0;
@@ -192,7 +191,7 @@ const LoginFormComponent = props => (
            
           </Form>
          {/* *********************************** Finish signing up*************************************** */}
-          <Form id="register" style={{ display: 'none' }} onSubmit={handleregister}>
+         <Form id="register" className={css.register}  onSubmit={handleregister}>
               <span className={css.joinLogin}>Finish signing up</span>
             <div className={css.fixedDiv}>
               
@@ -257,7 +256,7 @@ const LoginFormComponent = props => (
             </div>
           </Form>
            {/* *********************************** ENTER THE CODE WE SENT YOU*************************************** */}
-          <Form id='verfiy' onSubmit={handlecode} style={{ display: 'none' }}>
+           <Form id='verfiy' onSubmit={handlecode} className={css.register}>
            <span className={css.joinLogin}>Confirm your number</span>
            <h2 className={css.enterCode}>Please enter the code we sent you.</h2>
             <AuthCode

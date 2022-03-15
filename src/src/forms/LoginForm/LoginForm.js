@@ -28,41 +28,42 @@ const handleregister = ({ value }) => {
 };
 function handleLogin(event) {
   event.preventDefault();
-  document.getElementById("login").style.display = "none";
-  document.getElementById("verfiy").style.display = "";
-  // var number = document.getElementById("item").value;
-  // console.log(number)
-  // var settings = {
-  //   "url": "http://test123444adasd-001-site1.htempurl.com/api/Values?number=" + number,
-  //   "method": "POST",
-  //   "timeout": 0,
-  // };
+  
+  var number = document.getElementById("item").value;
+  console.log(number)
+  
+  var settings = {
+    "url": "http://test123444adasd-001-site1.htempurl.com/api/Values?number=" + number,
+    "method": "POST",
+    "timeout": 0,
+  };
 
-  // $.ajax(settings).done(function (response) {
-  //   if (response == true) {
-  //     document.getElementById("login").style.display = "none";
-  //     document.getElementById("verfiy").style.display = "";
-
-  //   }
- // });
+  $.ajax(settings).done(function (response) {
+    if (response == true) 
+    {
+      document.getElementById("login").classList.add(css.register)
+      document.getElementById("verfiy").classList.remove(css.register)
+    }
+    
+ });
 
 }
 function handlecode(event) {
   event.preventDefault();
 
-  document.getElementById("verfiy").style.display = "none";
-  document.getElementById("register").style.display = "";
-  // var settings = {
-  //   "url": "http://test123444adasd-001-site1.htempurl.com/api/Values?code=2123456&mobileNumber=01014637219",
-  //   "method": "POST",
-  //   "timeout": 0,
-  // };
+  
+  var settings = {
+    "url": "http://test123444adasd-001-site1.htempurl.com/api/Values?code=2123456&mobileNumber=01014637219",
+    "method": "POST",
+    "timeout": 0,
+  };
 
-  // $.ajax(settings).done(function (response) {
-  //   console.log(response);
-  //   document.getElementById("verfiy").style.display = "none";
-  //   document.getElementById("register").style.display = "";
-  // });
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+    document.getElementById("verfiy").classList.add(css.register)
+  document.getElementById("register").classList.remove(css.register)
+    
+  });
 }
 
 function oncangeitem(event) {
@@ -151,7 +152,7 @@ const LoginFormComponent = props => (
            <span className={css.joinLogin}>Join or Log in</span>
             
             <div>
-              <div style={{ color: '#000000', fontWeight: 'bold', marginBottom: "5%", fontSize:20 }}> Welcome to the Team.</div>
+              <div className={css.PhoneInputinternational}> Welcome to the Team.</div>
               <PhoneInput
                 international
                 placeholder="Enter your phone number"
@@ -168,7 +169,7 @@ const LoginFormComponent = props => (
               </PrimaryButton>
             </div>
           </Form>
-          <Form id="register" style={{ display: 'none' }} onSubmit={handleregister}>
+          <Form id="register" className = {css.register} onSubmit={handleregister}>
               <span className={css.joinLogin}>Finish signing up</span>
             <div>
               
@@ -225,7 +226,7 @@ const LoginFormComponent = props => (
               </PrimaryButton>
             </div>
           </Form>
-          <Form id='verfiy' onSubmit={handlecode} style={{ display: 'none' }}>
+          <Form id='verfiy'  onSubmit={handlecode} >
            <span className={css.joinLogin}>Confirm your number</span>
            <h2 className={css.enterCode}>Please enter the code we sent you.</h2>
             <AuthCode

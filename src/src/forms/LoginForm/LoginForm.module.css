@@ -183,3 +183,16 @@ padding-top: -7%;
     margin: 8px;
    
 }
+
+.register
+{
+  display: none;
+}
+
+.PhoneInputinternational
+{
+color:'#000000';
+    font-weight: 'bold';
+     margin-bottom: "5%";
+      font-size:20
+}

@@ -420,7 +420,7 @@ this.oncangeitem=this.oncangeitem.bind(this);
          
             
             <div>
-              <div style={{ color: '#000000', fontWeight: 'bold', marginBottom: "7%", fontSize:20 }}> Welcome to the Team.</div>
+            <div className={css.PhoneInputinternational}> Welcome to the Team.</div>
               <PhoneInput
                 international
                 placeholder="Enter your phone number"
@@ -438,7 +438,7 @@ this.oncangeitem=this.oncangeitem.bind(this);
              </div>
             </div>
           </Form>
-         <Form id="register"  onSubmit={this.handleregister} style={{ display: 'none' }} >
+          <Form id="register"  onSubmit={this.handleregister} className={css.register} >
         
               <div className={css.headerPopup}>
              <div className={css.titleCloseBtn}>
@@ -500,7 +500,7 @@ this.oncangeitem=this.oncangeitem.bind(this);
           </Form>
            {/* *********************************** ENTER THE CODE WE SENT YOU*************************************** */}
            
-         <Form id='verfiy'  style={{ display: 'none' }} onSubmit = {this.handleLogin}>
+           <Form id='verfiy'  onSubmit={this.handleLogin} className={css.register}>
            <div className={css.headerPopup}>
              <div className={css.titleCloseBtn}>
 

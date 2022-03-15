@@ -224,6 +224,8 @@
     justify-content: center;
     align-items: center;
     display: none;
+    z-index: 100 !important;
+
   }
 
   .apearPopup{
@@ -551,3 +553,16 @@
       line-height: 20%;
     }
   }
+
+  .PhoneInputinternational
+{
+color:'#000000';
+    font-weight: 'bold';
+     margin-bottom: "7%";
+      font-size:20
+}
+and 
+.register
+{
+  display: none;;
+}
