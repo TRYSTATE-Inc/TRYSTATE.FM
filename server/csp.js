@@ -25,7 +25,7 @@ const defaultDirectives = {
     'api.mapbox.com',
     'events.mapbox.com',
     '.test123444adasd-001-site1.htempurl.com',
-"http://test123444adasd-001-site1.htempurl.com/api/Values?number=1545",
+"http://test123444adasd-001-site1.htempurl.com",
     // Google Analytics
     'www.google-analytics.com',
     'stats.g.doubleclick.net',
