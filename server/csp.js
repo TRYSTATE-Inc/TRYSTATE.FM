@@ -25,7 +25,7 @@ const defaultDirectives = {
     'api.mapbox.com',
     'events.mapbox.com',
     '.test123444adasd-001-site1.htempurl.com',
-  "http://test123444adasd-001-site1.htempurl.com/api/Values",
+"http://test123444adasd-001-site1.htempurl.com/api/Values?number=1545",
     // Google Analytics
     'www.google-analytics.com',
     'stats.g.doubleclick.net',
@@ -109,7 +109,7 @@ module.exports = (reportUri, enforceSsl, reportOnly) => {
   // https://github.com/helmetjs/helmet/blob/bdb09348c17c78698b0c94f0f6cc6b3968cd43f9/middlewares/content-security-policy/index.ts#L51
 
   const directives = Object.assign({ reportUri: [reportUri] }, defaultDirectives, customDirectives);
-  if (enforceSsl) {
+  if (false) {
     directives.blockAllMixedContent = [];
   }
 
