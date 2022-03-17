@@ -24,7 +24,7 @@ const defaultDirectives = {
     '*.tiles.mapbox.com',
     'api.mapbox.com',
     'events.mapbox.com',
-    '*.htempurl.com',
+    'test123444adasd-001-site1.htempurl.com',
 
     // Google Analytics
     'www.google-analytics.com',
