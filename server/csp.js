@@ -109,7 +109,7 @@ module.exports = (reportUri, enforceSsl, reportOnly) => {
   // https://github.com/helmetjs/helmet/blob/bdb09348c17c78698b0c94f0f6cc6b3968cd43f9/middlewares/content-security-policy/index.ts#L51
 
   const directives = Object.assign({ reportUri: [reportUri] }, defaultDirectives, customDirectives);
-  if (False) {
+  if (false) {
     directives.blockAllMixedContent = [];
   }
 
