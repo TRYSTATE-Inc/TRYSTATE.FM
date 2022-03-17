@@ -16,6 +16,7 @@
         "autosize": "^4.0.0",
         "basic-auth": "^2.0.1",
         "body-parser": "^1.18.3",
+        "cjs-loader": "^0.1.0",
         "classnames": "^2.3.1",
         "compression": "^1.7.4",
         "cookie-parser": "^1.4.5",
