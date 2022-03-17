@@ -15,7 +15,7 @@ import $ from "jquery"; //babel
 /*import PhoneInput from 'react-phone-number-input'*/
 import  PhoneInput   from '../../external/react-phone-input-2-master/src/index.js';
 import AuthCode from 'react-auth-code-input';
-import ReactCodesInput from 'react-codes-input';
+
 
 import   '../../external/style.css';
 

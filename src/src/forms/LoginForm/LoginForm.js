@@ -16,7 +16,7 @@ import $ from "jquery"; //babel
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import AuthCode from 'react-auth-code-input';
-import ReactCodesInput from 'react-codes-input';
+
 
 
 const handleregister = ({ value }) => {
