@@ -35,6 +35,7 @@
         "jose": "3.11.4",
         "jquery": "^3.6.0",
         "lodash": "^4.17.21",
+        "lodash.startswith": "^4.2.1",
         "mapbox-gl-multitouch": "^1.0.3",
         "moment": "^2.22.2",
         "object.entries": "^1.1.4",
