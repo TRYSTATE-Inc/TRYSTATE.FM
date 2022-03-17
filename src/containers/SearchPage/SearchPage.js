@@ -16,8 +16,15 @@ import { getListingsById } from '../../ducks/marketplaceData.duck';
 import { manageDisableScrolling, isScrollingDisabled } from '../../ducks/UI.duck';
 import { SearchMap, ModalInMobile, Page ,Form, PrimaryButton, FieldTextInput, NamedLink } from '../../components';
 import { TopbarContainer , BotbarContainer } from '../../containers';
-import PhoneInput from 'react-phone-input-2'
-import 'react-phone-input-2/lib/style.css'
+import  PhoneInput   from '../../external/react-phone-input-2-master/src/index.js';
+import  rawCountries   from '../../external/react-phone-input-2-master/src/rawCountries.js';
+import  CountryData   from '../../external/react-phone-input-2-master/src/CountryData.js';
+import  rawTerritories   from '../../external/react-phone-input-2-master/src/rawTerritories.js';
+
+import   '../../external/style.css';
+
+
+
 import AuthCode from 'react-auth-code-input';
 import { getCountries, getCountryCallingCode } from 'react-phone-number-input/input'
 import $ from "jquery"; //babel
@@ -426,7 +433,7 @@ this.oncangeitem=this.oncangeitem.bind(this);
                 placeholder="Enter your phone number"
                 className={css.number}
                 country={'us'}
-
+                  
                 id="item"
                 withCountryCallingCode
                 onChange={this.oncangeitem}

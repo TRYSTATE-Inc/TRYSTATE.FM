@@ -13,11 +13,11 @@ import { getCountries, getCountryCallingCode } from 'react-phone-number-input/in
 import countryNames from 'react-phone-number-input/locale/en.json'
 import $ from "jquery"; //babel
 /*import PhoneInput from 'react-phone-number-input'*/
-import PhoneInput from 'react-phone-input-2'
-import 'react-phone-input-2/lib/style.css'
+import  PhoneInput   from '../../external/react-phone-input-2-master/src/index.js';
 import AuthCode from 'react-auth-code-input';
 import ReactCodesInput from 'react-codes-input';
 
+import   '../../external/style.css';
 
 const handleregister = ({ value }) => {
   event.preventDefault(); 
@@ -67,17 +67,33 @@ var nmber=localStorage.getItem("item");
 }
 function handlecode(event) {
 
-  
+  var number=localStorage.getItem("number");
   var settings = {
-     "url": "http://test123444adasd-001-site1.htempurl.com/api/Values?code=2123456&mobileNumber=01014637219",
+     "url": "http://test123444adasd-001-site1.htempurl.com/api/Values?code="+txes+"&mobileNumber="+number,
     "method": "POST",
      "timeout": 0,
    };
 
    $.ajax(settings).done(function (response) {
-    console.log(response);
-    document.getElementById("verfiy").classList.add(css.register)
-    document.getElementById("register").classList.remove(css.register)
+    if(!response.isOTPsuccessed)
+    {
+        alert("the OTP is incorrect !")
+    }    
+    else  if(response.ISuserregisted)
+    {
+     document.getElementById("Loginbutton").innerText = "Hi "+response.Profile.FirstName;
+     document.getElementById("Popup").style.display = "none";
+     document.getElementById("JoinButton").style.display = "none";
+
+    //  let x = document.getElementById('Popup');
+    
+      // window.location.href = '/'
+    }
+    else{
+      document.getElementById("verfiy").classList.add(css.register)
+      document.getElementById("register").classList.remove(css.register)
+     }
+   
    });
 }
 var number=0;
