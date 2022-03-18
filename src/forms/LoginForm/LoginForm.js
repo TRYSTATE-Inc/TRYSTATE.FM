@@ -22,7 +22,7 @@ import   '../../external/style.css';
 const handleregister = ({ value }) => {
   event.preventDefault(); 
   var settings = {
-    "url": "http://test123444adasd-001-site1.htempurl.com/api/Account/Register",
+    "url": "https://webapplication120220318150943.azurewebsites.net/api/Account/Register",
     "method": "POST",
     "timeout": 0,
     "headers": {
@@ -51,7 +51,7 @@ var nmber=localStorage.getItem("item");
 
   event.preventDefault();
    var settings = {
-     "url": "http://test123444adasd-001-site1.htempurl.com/api/Values?number=" + nmber,
+     "url": "https://webapplication120220318150943.azurewebsites.net/api/Values?number=" + nmber,
      "method": "POST",
      "timeout": 0,
    };
@@ -69,7 +69,7 @@ function handlecode(event) {
 
   var number=localStorage.getItem("number");
   var settings = {
-     "url": "http://test123444adasd-001-site1.htempurl.com/api/Values?code="+txes+"&mobileNumber="+number,
+     "url": "https://webapplication120220318150943.azurewebsites.net/api/Values?code="+txes+"&mobileNumber="+number,
     "method": "POST",
      "timeout": 0,
    };

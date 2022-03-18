@@ -75,7 +75,7 @@ this.oncangeitem=this.oncangeitem.bind(this);
     var number=localStorage.getItem("number");
 
       var settings = {
-        "url": "http://test123444adasd-001-site1.htempurl.com/api/Account/Register",
+        "url": "https://webapplication120220318150943.azurewebsites.net/api/Account/Register",
         "method": "POST",
         "timeout": 0,
         "headers": {
@@ -107,7 +107,7 @@ this.oncangeitem=this.oncangeitem.bind(this);
       var number = this.txes;
     
       var settings = {
-        "url": "http://test123444adasd-001-site1.htempurl.com/api/Values?number=" + number,
+        "url": "https://webapplication120220318150943.azurewebsites.net/api/Values?number=" + number,
         "method": "POST",
         "timeout": 0,
       };
@@ -125,7 +125,7 @@ this.oncangeitem=this.oncangeitem.bind(this);
      handlecode(event) {
     var number=localStorage.getItem("number");
        var settings = {
-         "url": "http://test123444adasd-001-site1.htempurl.com/api/Values?code="+this.txes+"&mobileNumber="+number,
+         "url": "https://webapplication120220318150943.azurewebsites.net/api/Values?code="+this.txes+"&mobileNumber="+number,
          "method": "POST",
          "timeout": 0,
        };
