@@ -47,7 +47,8 @@ const handleregister = ({ value }) => {
 
 };
 function handleLogin(event) {
-var nmber=localStorage.getItem("item");
+var nmber=localStorage.getItem("mobile_Number");
+
 
   event.preventDefault();
    var settings = {
@@ -60,6 +61,7 @@ var nmber=localStorage.getItem("item");
      if (response == true) {
       document.getElementById("login").classList.add(css.register)
       document.getElementById("verfiy").classList.remove(css.register)
+      
 
      }
   });
@@ -67,9 +69,10 @@ var nmber=localStorage.getItem("item");
 }
 function handlecode(event) {
 
-  var number=localStorage.getItem("number");
+  var local_Number=localStorage.getItem("mobile_Number");
+  // alert(local_Number)
   var settings = {
-     "url": "https://webapplication120220318150943.azurewebsites.net/api/Values?code="+txes+"&mobileNumber="+number,
+     "url": "https://webapplication120220318150943.azurewebsites.net/api/Values?code="+txes+"&mobileNumber="+local_Number,
     "method": "POST",
      "timeout": 0,
    };
@@ -98,7 +101,7 @@ function handlecode(event) {
 }
 var number=0;
 function oncangeitem(value) {
-localStorage.setItem("item",value);
+localStorage.setItem("mobile_Number",value);
 }
 
 var txes=0;
@@ -198,7 +201,7 @@ const LoginFormComponent = props => (
                 onChange={oncangeitem}
                 disableDropdown/>
                 
-              <div className={css.mobileMarginOflogin}>
+              <div className={css.ContButtonClass}>
                <PrimaryButton  className={css.onclick} type="submit" inProgress={submitInProgress} >
                 Continue
                 </PrimaryButton>
@@ -226,16 +229,17 @@ const LoginFormComponent = props => (
               />
               <p  className={css.terms}>Make sure it matches the name on your governement ID.</p>
          
-
-              <div className={css.userContainer} >
               <FieldTextInput
                 className={css.UserName}
-                id={formId ? `${formId}.UserName` : 'UserName'}
+                id="Email"
+                // id={formId ? `${formId}.UserName` : 'UserName'}
                 name="UserName"
                 placeholder="Username"
               />
+              {/* <div className={css.userContainer} >
+             
               <label className={css.trystateSpan}>@trystate.com</label>
-            </div>
+            </div> */}
 
               <FieldTextInput
                      className={css.birthDate}

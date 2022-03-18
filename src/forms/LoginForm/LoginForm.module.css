@@ -10,6 +10,7 @@
     display: none !important;
   }
 }
+html, body { height: 100%; overflow: hidden}
 
 .password {
   @apply --marketplaceModalPasswordMargins;
@@ -66,6 +67,14 @@ padding-top: -7%;
 
   
 }
+.ContButtonClass
+{
+  position: absolute;
+  bottom: 130px;
+  width: 89.2%;
+  display: flex;
+  justify-content: center;
+}
 .LastName
 {
   
@@ -96,9 +105,9 @@ padding-top: -7%;
   border: 1px solid #c4c4c4!important;
  padding: 0.08em  10px;
  border-radius: 8px;
- width: 60%;
- border-right:none !important;
- border-radius: 8px 0px 0px 8px ;
+ width: 100%;
+ /* border-right:none !important;
+ border-radius: 8px 0px 0px 8px ; */
 
 }
 
@@ -260,7 +269,7 @@ padding-top: -7%;
 }
 
 .mobileMarginOflogin{
-  height: calc(60vh - var(--topbarHeightDesktop));
+  height: calc(58vh - var(--topbarHeightDesktop));
   display: flex;
   align-items: flex-end;
   
@@ -270,9 +279,7 @@ padding-top: -7%;
    }
    
 }
-.mobileMarginOflogin button{
-  
-}
+
 .bottomWrapper{
    
   margin-top: 21vh;
@@ -347,7 +354,7 @@ padding-top: -7%;
     margin-top: 4.5vh;
    }
    .mobileMarginOflogin{
-    height: calc(59vh - var(--topbarHeightDesktop));
+    height: calc(55vh - var(--topbarHeightDesktop));
   }
 }
 
@@ -376,7 +383,7 @@ padding-top: -7%;
     font-size: 14px;
   }
   .mobileMarginOflogin{
-    height: calc(64.5vh - var(--topbarHeightDesktop));
+    height: calc(57vh - var(--topbarHeightDesktop));
   }
     .welcomeTeam{
     
@@ -390,7 +397,7 @@ padding-top: -7%;
    
   } 
   .mobileMarginOflogin{
-    height: calc(65vh - var(--topbarHeightDesktop));
+    height: calc(58vh - var(--topbarHeightDesktop));
   }
 }
 @media (min-height: 781px) and (max-height:800px) { 
@@ -399,7 +406,7 @@ padding-top: -7%;
    
   } 
   .mobileMarginOflogin{
-    height: calc(67vh - var(--topbarHeightDesktop));
+    height: calc(61vh - var(--topbarHeightDesktop));
   }
 }
 @media (min-height: 800px) and (max-height:830px) { 
@@ -408,7 +415,7 @@ padding-top: -7%;
    
   } 
   .mobileMarginOflogin{
-    height: calc(69vh - var(--topbarHeightDesktop));
+    height: calc(63vh - var(--topbarHeightDesktop));
   }    
 }
 @media (min-height: 831px) and (max-height:860px) { 
@@ -416,7 +423,7 @@ padding-top: -7%;
     margin-top: 30vh;
    }
    .mobileMarginOflogin{
-    height: calc(68vh - var(--topbarHeightDesktop));
+    height: calc(63vh - var(--topbarHeightDesktop));
   }
 } 
  
@@ -425,7 +432,7 @@ padding-top: -7%;
       margin-top: 33vh;
      }
      .mobileMarginOflogin{
-      height: calc(70vh - var(--topbarHeightDesktop));
+      height: calc(63vh - var(--topbarHeightDesktop));
     }
 }
 @media (min-height:891px) and (max-height:915px) { 
@@ -433,7 +440,7 @@ padding-top: -7%;
     margin-top: 35vh;
    }
    .mobileMarginOflogin{
-    height: calc(72vh - var(--topbarHeightDesktop));
+    height: calc(62vh - var(--topbarHeightDesktop));
   }
 }
 @media (min-height:916px) and (max-height:930px) { 
@@ -441,7 +448,7 @@ padding-top: -7%;
     margin-top: 35vh;
    }
    .mobileMarginOflogin{
-    height: calc(72vh - var(--topbarHeightDesktop));
+    height: calc(65vh - var(--topbarHeightDesktop));
   }
  }   
  

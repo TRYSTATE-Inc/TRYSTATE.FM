@@ -265,7 +265,6 @@ this.oncangeitem=this.oncangeitem.bind(this);
     document.getElementById("verfiy").style.display = "none";
     document.getElementById("register").style.display = "none";
     let x = document.getElementById('Popup');
-
     if (x.className === (css.modalBackground) ) {
       x.className = (css.apearPopup);
       
@@ -407,9 +406,13 @@ this.oncangeitem=this.oncangeitem.bind(this);
                 />
               {/* ) : null} */}
             </div>
-          {/* </ModalInMobile> */}
+          
+        
+          
+        </div> 
+        {/* </ModalInMobile> */}
                    {/**************************************POPUP************************************ */}
-         <div id="Popup" style={{zIndex:100}} className={css.modalBackground}>
+                   <div id="Popup" style={{zIndex:100}} className={css.modalBackground}>
           <div className={css.modalContainer}>
          
             <div >
@@ -472,16 +475,16 @@ this.oncangeitem=this.oncangeitem.bind(this);
               />
               <small className={css.terms}>Make sure it matches the name on your governement ID.</small>
 
-
-              <div className={css.usernameClass}>
               <input
                 className={css.UserName}
                 id="Email"
                 name="UserName"
                 placeholder="Username"
                 />
-                <label className={css.trystateSpan}>@trystate.com</label>
-              </div>
+              {/* <div className={css.usernameClass}>
+             
+                <label className={css.trystateSpan}>@trystate.fm</label>
+              </div> */}
                  <input
                 className={css.birthDate}
                 id="Birthdate"
@@ -543,9 +546,8 @@ this.oncangeitem=this.oncangeitem.bind(this);
             </div>
         
           </div>
+     
      </div>
-          
-        </div> 
       </Page>
     );
   }
