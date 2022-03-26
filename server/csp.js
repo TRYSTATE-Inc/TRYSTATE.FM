@@ -25,7 +25,7 @@ const defaultDirectives = {
     'api.mapbox.com',
     'events.mapbox.com',
     '.test123444adasd-001-site1.htempurl.com',
-"https://webapplication120220318150943.azurewebsites.net",
+"https://trystatebackend.herokuapp.com",
     // Google Analytics
     'www.google-analytics.com',
     'stats.g.doubleclick.net',

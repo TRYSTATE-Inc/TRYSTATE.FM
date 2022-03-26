@@ -60,6 +60,8 @@ this.handleregister=this.handleregister.bind(this);
 this.handlecode=this.handlecode.bind(this);
 this.oncangeitemcode=this.oncangeitemcode.bind(this);
 this.closeitem=this.closeitem.bind(this);
+this.showdate=this.showdate.bind(this);
+
 
 
 
@@ -69,13 +71,17 @@ this.oncangeitem=this.oncangeitem.bind(this);
     this.onOpenMobileModal = this.onOpenMobileModal.bind(this);
     this.onCloseMobileModal = this.onCloseMobileModal.bind(this);
   }
+  showdate()
+  {
+    alert(333);
+  }
    handleregister = ({ value }) => {
     
       event.preventDefault();
     var number=localStorage.getItem("number");
 
       var settings = {
-        "url": "https://webapplication120220318150943.azurewebsites.net/api/Account/Register",
+        "url": "https://trystatebackend.herokuapp.com/api/Account/Register",
         "method": "POST",
         "timeout": 0,
         "headers": {
@@ -107,7 +113,7 @@ this.oncangeitem=this.oncangeitem.bind(this);
       var number = this.txes;
     
       var settings = {
-        "url": "https://webapplication120220318150943.azurewebsites.net/api/Values?number=" + number,
+        "url": "https://trystatebackend.herokuapp.com/api/Account/sendOtp?number=" + number,
         "method": "POST",
         "timeout": 0,
       };
@@ -125,7 +131,7 @@ this.oncangeitem=this.oncangeitem.bind(this);
      handlecode(event) {
     var number=localStorage.getItem("number");
        var settings = {
-         "url": "https://webapplication120220318150943.azurewebsites.net/api/Values?code="+this.txes+"&mobileNumber="+number,
+         "url": "https://trystatebackend.herokuapp.com/api/Account/verifyCode?code="+this.txes+"&mobileNumber="+number,
          "method": "POST",
          "timeout": 0,
        };
@@ -430,7 +436,7 @@ this.oncangeitem=this.oncangeitem.bind(this);
          
             
             <div>
-            <div className={css.PhoneInputinternational}> Welcome to the Team.</div>
+            <div className={css.PhoneInputinternational}> Welcome to the team.</div>
               <PhoneInput
                 international
                 placeholder="Enter your phone number"
@@ -480,15 +486,18 @@ this.oncangeitem=this.oncangeitem.bind(this);
                 id="Email"
                 name="UserName"
                 placeholder="Username"
+                
                 />
               {/* <div className={css.usernameClass}>
              
                 <label className={css.trystateSpan}>@trystate.fm</label>
               </div> */}
+
                  <input
                 className={css.birthDate}
                 id="Birthdate"
-                type="date"
+                type="text"
+                onFocus={(e) => e.target.type = 'date'}
                 name="date"
                 placeholder="Birthdate"
                 maxlength="10"
@@ -525,7 +534,7 @@ this.oncangeitem=this.oncangeitem.bind(this);
            <div/>
            </div>
            
-           <h2 className={css.enterCode}>Please enter the code we sent you.</h2>
+           <h2 className={css.enterCode1}>Please enter the code we sent you.</h2>
             <AuthCode
               containerClassName={css.containerAuth}
               inputClassName={css.input}
@@ -535,8 +544,8 @@ this.oncangeitem=this.oncangeitem.bind(this);
                />
               <div className={css.resendCode}>
                 <div>
-              <button type="submit">Resend code</button>
-              </div>
+                       <button type="submit">Resend code</button>
+                </div>
               </div>
             {/* <PrimaryButton className={css.onclick} type="submit"  >
               Continue

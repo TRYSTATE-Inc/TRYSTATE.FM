@@ -22,7 +22,7 @@ import   '../../external/style.css';
 const handleregister = ({ value }) => {
   event.preventDefault(); 
   var settings = {
-    "url": "https://webapplication120220318150943.azurewebsites.net/api/Account/Register",
+    "url": "https://trystatebackend.herokuapp.com/api/Account/Register",
     "method": "POST",
     "timeout": 0,
     "headers": {
@@ -52,7 +52,7 @@ var nmber=localStorage.getItem("mobile_Number");
 
   event.preventDefault();
    var settings = {
-     "url": "https://webapplication120220318150943.azurewebsites.net/api/Values?number=" + nmber,
+     "url": "https://trystatebackend.herokuapp.com/api/Account/sendOtp?number=" + nmber,
      "method": "POST",
      "timeout": 0,
    };
@@ -72,7 +72,7 @@ function handlecode(event) {
   var local_Number=localStorage.getItem("mobile_Number");
   // alert(local_Number)
   var settings = {
-     "url": "https://webapplication120220318150943.azurewebsites.net/api/Values?code="+txes+"&mobileNumber="+local_Number,
+     "url": "https://trystatebackend.herokuapp.com/api/Account/verifyCode?code="+txes+"&mobileNumber="+local_Number,
     "method": "POST",
      "timeout": 0,
    };
@@ -243,8 +243,9 @@ const LoginFormComponent = props => (
 
               <FieldTextInput
                      className={css.birthDate}
-                     type="date"
                      id='Birthdate'
+                     type="text"
+                     onFocus={(e) => e.target.type = 'date'}
                      name="date"
                       placeholder="Birthdate"
                        maxlength="10"
@@ -283,6 +284,7 @@ const LoginFormComponent = props => (
              containerClassName={css.container}
              inputClassName={css.input}
               className={css.enterCode}
+              allowedCharacters='numeric'
               // placeholder="Enter 6 digit here"
               value={value}
               onChange={oncangeitem2222} />

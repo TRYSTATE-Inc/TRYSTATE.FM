@@ -200,15 +200,15 @@
   }
   
   
-  /* .titleCloseBtn {
   
-    
-  } */
   
   .titleCloseBtn button {
+    color: #000000;
     background-color: transparent;
     border: none;
-    font-size: 18px;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 26px;
     cursor: pointer;
   }
   
@@ -304,7 +304,7 @@
   .number{
     height: 44px;
     margin: 0px;
-    margin-bottom: 7%;
+    margin-bottom: 45px;
     border-radius:8px !important;
   
   }
@@ -342,6 +342,8 @@
     border-bottom-left-radius: 0px;
     border-bottom-color:white !important ;
     padding-bottom: 0.07em ;
+    font-weight: 400;
+    color: #8E8E93;
 
     
   }
@@ -354,6 +356,9 @@
     border-radius: 8px;
     border-top-right-radius: 0px;
     border-top-left-radius: 0px;
+    font-weight: 400;
+    color: #8E8E93;
+
     
   }
   .usernameClass
@@ -375,6 +380,8 @@
    margin-top: 9%;
    width: 100%;
    margin-right: 0px!important;
+   font-weight: 400;
+    color: #8E8E93;
    @media (--viewportMedium) {
       
     margin-top: 5%;
@@ -446,10 +453,11 @@
     justify-content: center;
     width: 92%;
     display: flex;
-    font-size:15.5px;
-    margin-bottom: 17%;
+    font-size:16px;
+    font-style: normal;
+    font-weight: 700;
     font-weight: 600;
-    color: black;
+    color: #454545;
     margin-top: 0px;
     @media (--viewportMedium) {
       
@@ -463,16 +471,26 @@
     padding: 0.08em 10px;
     border-radius: 8px;
     margin-top: 9%;
+
     @media (--viewportMedium) {
       
       margin-top: 5%;
      }
   }
+
   .terms{
-    color: #a6a6aa;
-    font-size: 10.5px;
-    font-weight: 450;
-    line-height: 120%;
+    /* color: #a6a6aa; */
+    /* font-size: 10.5px; */
+    /* font-weight: 450; */
+    /* line-height: 120%; */
+
+    font-weight: 400;
+font-size: 12px;
+line-height: 14px;
+/* identical to box height */
+
+
+color: #8E8E93;
     @media (--viewportMedium) {
       
      font-size: 12px;
@@ -490,27 +508,41 @@
     margin-left: 2.5px;
     margin-right: 2.5px;
   }
+  .enterCode1{
+   
+    font-size: 17.5px;
+    font-weight: 700;
+    margin-bottom: 45px;
+    
+    @media (--viewportMedium) {
+      font-size: 21px;
+      
+    }
+  }
   .enterCode{
-    margin-bottom:12%;
+   
     font-size: 17.5px;
     font-weight: 700;
     @media (--viewportMedium) {
       font-size: 21px;
-      margin-bottom:8%;
+      
     }
   }
   
   .containerAuth{
-    margin-bottom:12% ;
+   margin-bottom: 25px;
     display: flex;
     justify-content:space-around;
-    @media (--viewportMedium) {
+    
+     /*@media (--viewportMedium) 
+    {
       margin-bottom:8%;
-    }
+    } */
     
   }
   .input{
-      width: 1.8ch;
+    height: 66px;
+      width: 66px !important;
       font-size:35px;
       text-align: center;
       padding: 6px;
@@ -527,17 +559,22 @@
  .headerPopup{
    
    display: flex;
+   margin-bottom: 0px;
+   margin-top: 0px;
  }
 
   .resendCode {
     justify-content: center;
       display: flex;
+
   }
   .resendCode button{
     
     text-decoration: underline;
-    font-size: 13px;
-    font-weight: 650;
+    font-weight: 700;
+font-size: 12px;
+line-height: 14px;
+color: #000000;
     @media (--viewportMedium) {
       
       background-color: transparent;
@@ -576,10 +613,13 @@
 
   .PhoneInputinternational
 {
-color:'#000000';
+  margin-top: 14px;
+color:#000000;
+font-weight: 700;
     font-weight: 'bold';
-     margin-bottom: "7%";
-      font-size:20
+    line-height: 26px;
+     margin-bottom: 45px;
+      font-size:22px;
 }
 and 
 .register
